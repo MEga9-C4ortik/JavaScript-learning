@@ -1,11 +1,6 @@
-let a = '65';
-
-a -= 89;
+let a;
 console.log(a);
 
-let inf = Infinity;
+console.log(String(a));
 
-while (inf >=1000000) {
-    inf /= 2;
-    console.log(inf);
-}
+console.log(Number(a));
