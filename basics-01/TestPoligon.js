@@ -1,6 +1,3 @@
-let a;
-console.log(a);
-
-console.log(String(a));
-
-console.log(Number(a));
+for(let i = 0; i < 10;++i){
+    console.log(i);
+}
