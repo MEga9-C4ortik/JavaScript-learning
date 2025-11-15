@@ -2,10 +2,12 @@ const title = document.getElementById("title");
 const input = document.getElementById("input"); // input field
 const buttonAddTask = document.getElementById("button"); //add task button
 const list = document.getElementById("list"); // main list for task
+const buttonClearCompletedgit = document.getElementById("clearCompleted");
 
 buttonAddTask.addEventListener("click", addTask); // button add task
 input.addEventListener("keypress", (e) => keyboardPress(e)) //enter add task
 input.focus(); //return cursor on the input field
+buttonClearCompleted.addEventListener("click", clearCompleted);
 
 function addTask(){
     const text = input.value.trim(); //name of the task
