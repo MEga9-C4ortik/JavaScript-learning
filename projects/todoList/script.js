@@ -2,12 +2,12 @@ const title = document.getElementById("title");
 const input = document.getElementById("input"); // input field
 const buttonAddTask = document.getElementById("button"); //add task button
 const list = document.getElementById("list"); // main list for task
-const buttonClearCompletedgit = document.getElementById("clearCompleted");
+const buttonClearCompleted = document.getElementById("clearCompleted");
 
 buttonAddTask.addEventListener("click", addTask); // button add task
 input.addEventListener("keypress", (e) => keyboardPress(e)) //enter add task
 input.focus(); //return cursor on the input field
-buttonClearCompleted.addEventListener("click", clearCompleted);
+buttonClearCompleted.addEventListener("click", () => clearCompleted());
 
 function addTask(){
     const text = input.value.trim(); //name of the task
@@ -21,11 +21,15 @@ function addTask(){
     const li = document.createElement("li");
     span.textContent = text; //for css
 
-    li.addEventListener("click", () => toggleTaskDone(li)); //click for done
+    span.addEventListener("click", () => toggleTaskDone(li)); //click for done
 
     const deleteButton = document.createElement("button"); //delete button
     deleteButton.textContent = "X";
-    deleteButton.addEventListener("click", () => deleteTask(li));
+    deleteButton.addEventListener("click", (e) => {
+        e.stopPropagation(); // Prevents click from bubbling to li
+        deleteTask(li);
+        input.focus();git
+    });
 
     li.appendChild(span);
     li.appendChild(deleteButton);
@@ -51,9 +55,11 @@ function keyboardPress(keyPressed){   //checks enter input
 }
 
 function clearCompleted(){
-    const completedTasks = list.querySelectorAll(list.done);
+    const completedTasks = list.querySelectorAll("li.done");
 
-    completedTasks.forEach(task => task.remove());
+    completedTasks.forEach(task => {
+        task.remove();
+    });
 
-    //need to add updateCounter func after local storage is done
+    input.focus(); // Return focus to input
 }
