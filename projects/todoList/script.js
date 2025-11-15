@@ -1,33 +1,33 @@
 const title = document.getElementById("title");
-const button = document.getElementById("button");
-const input = document.getElementById("input");
-const list = document.getElementById("list");
+const input = document.getElementById("input"); // input field
+const buttonAddTask = document.getElementById("button"); //add task button
+const list = document.getElementById("list"); // main list for task
 
-button.addEventListener("click", addTask);
-input.addEventListener("keypress", (e) => keyboardPress(e))
-input.focus();
+buttonAddTask.addEventListener("click", addTask); // button add task
+input.addEventListener("keypress", (e) => keyboardPress(e)) //enter add task
+input.focus(); //return cursor on the input field
 
 function addTask(){
-    const text = input.value.trim();
-    const span = document.createElement("span");
+    const text = input.value.trim(); //name of the task
+    const span = document.createElement("span"); //span for data storing
 
-    if(text === ""){
+    if(text === ""){ //check for null string
         input.value = "";
         return;
     }
 
     const li = document.createElement("li");
-    span.textContent = text;
+    span.textContent = text; //for css
 
-    li.addEventListener("click", () => toggleTaskDone(li));
+    li.addEventListener("click", () => toggleTaskDone(li)); //click for done
 
-    const deleteButton = document.createElement("button");
+    const deleteButton = document.createElement("button"); //delete button
     deleteButton.textContent = "X";
     deleteButton.addEventListener("click", () => deleteTask(li));
 
     li.appendChild(span);
     li.appendChild(deleteButton);
-    list.appendChild(li);
+    list.appendChild(li); // func's local li to the main list
 
     input.value = "";
     input.focus();
@@ -35,15 +35,23 @@ function addTask(){
 
 function deleteTask(element){
     element.remove();
-    input.focus();
+    input.focus(); //return cursor to the input field
 }
 
-function toggleTaskDone(element){
+function toggleTaskDone(element){ //marks task as done
     element.classList.toggle("done");
 }
 
-function keyboardPress(keyPressed){
+function keyboardPress(keyPressed){   //checks enter input
     if(keyPressed.key === "Enter"){
         addTask();
     }
+}
+
+function clearCompleted(){
+    const completedTasks = list.querySelectorAll(list.done);
+
+    completedTasks.forEach(task => task.remove());
+
+    //need to add updateCounter func after local storage is done
 }
