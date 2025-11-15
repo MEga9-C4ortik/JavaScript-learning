@@ -4,26 +4,21 @@ body{
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-color: darkslategrey;
+    background-color: lightskyblue;
+}
+
+h1{
+    text-align: center;
+    margin-top: 0px;
 }
 
 .container {
     width: 400px;
     max-width: 60%;
-    background-color: white;
+    background-color: yellow;
     padding: 30px;
-    border-radius: 30px;
+    border-radius: 50px;
     box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
-}
-
-h1{
-    text-align: center;
-    margin-top: 3px;
-}
-
-input button{
-    width: 100%;
-    margin-bottom: 10px;
 }
 
 .done {
@@ -42,33 +37,60 @@ input button{
     background-color: lightgreen;
 }
 
+.input-field {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+}
 input {
-    justify-content: center;
-    background-color: lightgray;
+    background-color: whitesmoke;
     font-size: 16px;
-    width: 300px;
+    height: 30px;
+    width: 200px;
     border: 2px solid lightgray;
+    border-radius: 7px;
+    padding: 2px 5px;
+    margin-left: 50px;
+}
+.input-field button{
+    background-color: lightblue;
+    color: black;
+    transition: all 0.3s ease;
+    border: 2px solid lightgray;
+    padding: 10px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 14px;
+}
+.input-field button:hover{
+    background-color: blue;
+    color: white;
 }
 
 li {
+    list-style: none;
     display: flex;
     justify-content: space-between;
+    transition: all 0.3s ease;
     padding: 10px;
     margin: 10px 0;
-    background-color: yellow;
+    background-color: #fdffa8;
     border-radius: 5px;
+    border: 1px solid black;
 }
 li:hover {
     background-color: lightyellow;
-    transform: scale(1.02);
+    transform: scale(0.95);
     box-shadow: 0px 4px 8px white;
-    opacity: 0.75;
+    opacity: 0.82;
 }
 
 li button {
     background-color: white;
     color: black;
-    border: none;
+    transition: background-color 0.3s ease;
+    border: 1px solid lightgray;
     padding: 5px 10px;
     border-radius: 3px;
     cursor: pointer;
