@@ -78,13 +78,44 @@ function toggleTaskDone(element){
     input.focus();
 }
 
-function editTask(li, span){
-    const currentText = span.textContent;
+function editTask(li, spanElement){
+    const currentText = spanElement.textContent;
 
     const editInput = document.createElement("input");
     editInput.type = "text";
     editInput.value = currentText;
+    editInput.classList.add("editButton");
 
+    li.replaceChild(editInput, spanElement);
+    editInput.focus();
+    editInput.select(); //select all text field
+
+    function saveEdit(){
+        const newText = editInput.value.trim();
+
+        if(newText === ""){
+            spanElement.textContent = newText;
+        }
+        else{
+            spanElement.textContent = currentText; //old value if empty
+        }
+        li.replaceChild(spanElement, editInput);
+        input.focus();
+    }
+
+    editInput.addEventListener("keypress", (e) => {
+       if (e.key === "Enter"){
+           saveEdit();
+       }
+    });
+
+    editInput.addEventListener("blur", saveEdit);
+    editInput.addEventListener("keydown", (e) => {
+        if (e.key === "Escape"){
+            li.replaceChild(spanElement, editInput);
+            input.focus();
+        }
+    });
 }
 
 function keyboardPress(keyPressed){   //checks enter input

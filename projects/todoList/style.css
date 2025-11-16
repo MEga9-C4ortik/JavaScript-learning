@@ -88,12 +88,27 @@ li .completeButton:hover {
     color: white;
 }
 
+li .editButton {
+    background-color: white;
+    color: black;
+    border: 3px solid blue;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+li .editButton:hover {
+    background-color: blue;
+    color: white;
+}
+
 li .deleteButton {
     background-color: white;
     color: black;
     border: 3px solid red;
-    padding: 5px 10px;
     border-radius: 3px;
+    padding: 5px 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -132,16 +147,18 @@ li {
     list-style: none;
     display: flex;
     justify-content: space-between;
-    transition: all 0.3s ease;
-    padding: 10px;
-    margin: 10px 0;
     background-color: white;
+    border: 2px solid black;
     border-radius: 5px;
-    border: 1px solid black;
+    margin: 10px 0;
+    padding: 10px;
+    transition: all 0.3s ease;
 }
 li:hover {
-    background-color: lightyellow;
+    background-color: lightgoldenrodyellow;
     transform: scale(0.95);
+    border: 5px solid black;
+    border-radius: 5px;
     box-shadow: 0px 4px 8px white;
-    opacity: 0.82;
+    opacity: 0.83;
 }
