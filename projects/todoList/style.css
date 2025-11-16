@@ -147,13 +147,15 @@ li {
     list-style: none;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    margin: 10px 0;
+    padding: 10px;
     background-color: white;
     border: 2px solid black;
     border-radius: 5px;
-    margin: 10px 0;
-    padding: 10px;
-    transition: all 0.3s ease;
 }
+
 li:hover {
     background-color: lightgoldenrodyellow;
     transform: scale(0.95);
@@ -161,4 +163,21 @@ li:hover {
     border-radius: 5px;
     box-shadow: 0px 4px 8px white;
     opacity: 0.83;
+}
+
+li span{
+    flex: 1; /* Takes available space */
+    overflow: hidden; /* Hides overflow */
+    text-overflow: ellipsis; /* Shows ... for long text */
+    white-space: nowrap; /* Keeps text on one line */
+    margin-right: 10px; /* Space before buttons */
+}
+
+#taskCounter {
+    text-align: center;
+    color: #999;
+    font-size: 20px;
+    margin: 5px 0 15px 0;
+    font-style: italic;
+    font-weight: bold;
 }

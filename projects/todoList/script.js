@@ -55,12 +55,14 @@ function addTask(){
     li.appendChild(buttonContainer);
     list.appendChild(li); // func's local li to the main list
 
+    updateCounter();
     input.value = "";
     input.focus();
 }
 
 function deleteTask(element){
     element.remove();
+    updateCounter();
     input.focus(); //return cursor to the input field
 }
 
@@ -75,6 +77,7 @@ function toggleTaskDone(element){
         completeBtn.textContent = "✓"; // Show checkmark
     }
 
+    updateCounter();
     input.focus();
 }
 
@@ -110,11 +113,7 @@ function editTask(li, spanElement){
     editInput.addEventListener("keydown", (e) => {
        if (e.key === "Enter"){
            saveEdit();
-       }
-    });
-
-    editInput.addEventListener("keydown", (e) => {
-        if (e.key === "Escape"){
+       } else if (e.key === "Escape"){
             isCanceled = true;
             li.replaceChild(spanElement, editInput);
             input.focus();
@@ -135,4 +134,20 @@ function clearCompleted(){
     completedTasks.forEach(task => {
         deleteTask(task);
     });
+}
+
+function updateCounter() {
+    const allTasks = list.querySelectorAll("li");
+    const completedTasks = list.querySelectorAll(".done");
+
+    const total = allTasks.length;
+    const remaining = total - completedTasks.length;
+
+    const counter = document.getElementById("taskCounter");
+
+    if(remaining === 1) {
+        counter.textContent = '1 task remaining';
+    } else {
+        counter.textContent = `${remaining} tasks remaining`;
+    }
 }
