@@ -1,6 +1,6 @@
 const title = document.getElementById("title");
 const input = document.getElementById("input"); // input field
-const buttonAddTask = document.getElementById("button"); //add task button
+const buttonAddTask = document.getElementById("buttonAdd"); //add task button
 const list = document.getElementById("list"); // main list for task
 const buttonClearCompleted = document.getElementById("clearCompleted");
 
@@ -86,14 +86,18 @@ function editTask(li, spanElement){
     editInput.value = currentText;
     editInput.classList.add("editButton");
 
+    let isCanceled = false;
+
     li.replaceChild(editInput, spanElement);
     editInput.focus();
     editInput.select(); //select all text field
 
     function saveEdit(){
+        if(isCanceled){ return;}
+
         const newText = editInput.value.trim();
 
-        if(newText === ""){
+        if(newText !== "" && newText !== currentText){
             spanElement.textContent = newText;
         }
         else{
@@ -103,19 +107,20 @@ function editTask(li, spanElement){
         input.focus();
     }
 
-    editInput.addEventListener("keypress", (e) => {
+    editInput.addEventListener("keydown", (e) => {
        if (e.key === "Enter"){
            saveEdit();
        }
     });
 
-    editInput.addEventListener("blur", saveEdit);
     editInput.addEventListener("keydown", (e) => {
         if (e.key === "Escape"){
+            isCanceled = true;
             li.replaceChild(spanElement, editInput);
             input.focus();
         }
     });
+    editInput.addEventListener("blur", saveEdit);
 }
 
 function keyboardPress(keyPressed){   //checks enter input
@@ -125,11 +130,9 @@ function keyboardPress(keyPressed){   //checks enter input
 }
 
 function clearCompleted(){
-    const completedTasks = list.querySelectorAll("li.done");
+    const completedTasks = list.querySelectorAll(".done");
 
     completedTasks.forEach(task => {
-        task.remove();
+        deleteTask(task);
     });
-
-    input.focus(); // Return focus to input
 }
