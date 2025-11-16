@@ -4,7 +4,7 @@ body{
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-color: lightskyblue;
+    background-color: rgba(160, 233, 160, 0.83);
 }
 
 h1{
@@ -21,38 +21,21 @@ h1{
     box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
 }
 
-.done {
-    background-color: green;
-    color: white;
-    opacity: 0.7;
-}
-.done button{
-    text-decoration: none;
-    opacity: 1;
-}
-.done span{
-    text-decoration: line-through;
-}
-.done:hover{
-    background-color: lightgreen;
-}
-
 .input-field {
     display: flex;
     gap: 10px;
     align-items: center;
-    margin-bottom: 20px;
+    margin: 0 auto 20px auto;
+    width: fit-content;
 }
 input {
     flex: 1;
     background-color: whitesmoke;
     font-size: 16px;
     height: 30px;
-    width: 200px;
     border: 2px solid lightgray;
     border-radius: 7px;
     padding: 2px 5px;
-    margin-left: 50px;
 }
 .input-field button{
     background-color: lightblue;
@@ -70,18 +53,79 @@ input {
 }
 
 #clearCompleted {
-    width: 100%;
-    padding: 10px;
+    display: block; /* Makes margin: auto work for centering */
+    width: fit-content; /* Button only as wide as text */
+    padding: 10px 20px; /* Add horizontal padding */
     background-color: #ff5252;
     color: white;
-    border: none;
+    border: none; /*remove default border*/
     border-radius: 8px;
     cursor: pointer;
     font-size: 14px;
-    margin-top: 10px;
+    margin: 0 auto 20px auto; /* This centers it */
 }
 #clearCompleted:hover {
     background-color: #ff6b6b;
+}
+
+.buttonContainer{
+    display: flex;
+    gap: 5px;
+}
+
+li .completeButton {
+    background-color: white;
+    color: black;
+    border: 3px solid green;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+li .completeButton:hover {
+    background-color: green;
+    color: white;
+}
+
+li .deleteButton {
+    background-color: white;
+    color: black;
+    border: 3px solid red;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+li .deleteButton:hover {
+    background-color: red;
+    color: white;
+}
+
+/* When task is done, change complete button appearance */
+.done .completeButton {
+    background-color: darkgreen;
+    color: white;
+}
+
+.done .completeButton:hover {
+    background-color: lightgreen;
+    color: black;
+}
+
+.done {
+    background-color: green;
+    color: white;
+    opacity: 0.8;
+}
+
+.done:hover{
+    background-color: lightgreen;
+}
+
+.done button {
+    opacity: 1; /* Make buttons fully visible */
 }
 
 li {
@@ -91,7 +135,7 @@ li {
     transition: all 0.3s ease;
     padding: 10px;
     margin: 10px 0;
-    background-color: #fdffa8;
+    background-color: white;
     border-radius: 5px;
     border: 1px solid black;
 }
@@ -100,18 +144,4 @@ li:hover {
     transform: scale(0.95);
     box-shadow: 0px 4px 8px white;
     opacity: 0.82;
-}
-
-li button {
-    background-color: white;
-    color: black;
-    transition: background-color 0.3s ease;
-    border: 1px solid lightgray;
-    padding: 5px 10px;
-    border-radius: 3px;
-    cursor: pointer;
-}
-li button:hover {
-    background-color: red;
-    color: white;
 }

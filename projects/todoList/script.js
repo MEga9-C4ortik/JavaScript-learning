@@ -21,18 +21,29 @@ function addTask(){
     const li = document.createElement("li");
     span.textContent = text; //for css
 
-    span.addEventListener("click", () => toggleTaskDone(li)); //click for done
+    const completeButton = document.createElement("button");
+    completeButton.textContent = "✓";
+    completeButton.classList.add("completeButton");
+    completeButton.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleTaskDone(li);
+    });
 
     const deleteButton = document.createElement("button"); //delete button
-    deleteButton.textContent = "X";
+    deleteButton.textContent = "✕";
+    deleteButton.classList.add("deleteButton");
     deleteButton.addEventListener("click", (e) => {
         e.stopPropagation(); // Prevents click from bubbling to li
         deleteTask(li);
-        input.focus();git
     });
 
+    const buttonContainer = document.createElement("div");
+    buttonContainer.classList.add("buttonContainer");
+    buttonContainer.appendChild(completeButton);
+    buttonContainer.appendChild(deleteButton);
+
     li.appendChild(span);
-    li.appendChild(deleteButton);
+    li.appendChild(buttonContainer);
     list.appendChild(li); // func's local li to the main list
 
     input.value = "";
@@ -44,8 +55,18 @@ function deleteTask(element){
     input.focus(); //return cursor to the input field
 }
 
-function toggleTaskDone(element){ //marks task as done
+function toggleTaskDone(element){
     element.classList.toggle("done");
+
+    // Change button text based on done state
+    const completeBtn = element.querySelector(".completeButton");
+    if(element.classList.contains("done")) {
+        completeBtn.textContent = "↺"; // Show undo icon
+    } else {
+        completeBtn.textContent = "✓"; // Show checkmark
+    }
+
+    input.focus();
 }
 
 function keyboardPress(keyPressed){   //checks enter input
