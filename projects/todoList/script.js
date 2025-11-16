@@ -29,6 +29,14 @@ function addTask(){
         toggleTaskDone(li);
     });
 
+    const editButton = document.createElement("button");
+    editButton.textContent = "✎";
+    editButton.classList.add("editButton");
+    editButton.addEventListener("click", (e) => {
+       e.stopPropagation();
+       editTask(li, span);
+    });
+
     const deleteButton = document.createElement("button"); //delete button
     deleteButton.textContent = "✕";
     deleteButton.classList.add("deleteButton");
@@ -40,6 +48,7 @@ function addTask(){
     const buttonContainer = document.createElement("div");
     buttonContainer.classList.add("buttonContainer");
     buttonContainer.appendChild(completeButton);
+    buttonContainer.appendChild(editButton);
     buttonContainer.appendChild(deleteButton);
 
     li.appendChild(span);
@@ -67,6 +76,15 @@ function toggleTaskDone(element){
     }
 
     input.focus();
+}
+
+function editTask(li, span){
+    const currentText = span.textContent;
+
+    const editInput = document.createElement("input");
+    editInput.type = "text";
+    editInput.value = currentText;
+
 }
 
 function keyboardPress(keyPressed){   //checks enter input
