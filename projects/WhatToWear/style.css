@@ -6,14 +6,14 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-    background-color: #340933;
+    background-color: #335664;
     padding-bottom: 70px;
 }
 
 h1 {
     margin-bottom: 20px;
     font-size: 26px;
-    color: #559E54;
+    color: #D82313;
 }
 
 .navbar {
@@ -22,9 +22,9 @@ h1 {
     left: 0;
     width: 100%;
     display: flex;
-    background-color: #FBA90A;
+    background-color: #BC6962;
     border-top: 1px solid black;
-    color: #eee;
+    color: #9B6B21;
 }
 
 .navbar button{
@@ -34,10 +34,10 @@ h1 {
     background: none;
     font-size: 20px;
     cursor: pointer;
-    transition: all 0.4s;
+    transition: ease 0.4s;
 }
 .navbar button:active {
-    background-color: #007bff;
+    background-color: #D82313;
     color: white;
     font-weight: bold;
 }
