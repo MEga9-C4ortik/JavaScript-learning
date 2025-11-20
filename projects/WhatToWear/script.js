@@ -1,10 +1,9 @@
 function showSection( sectionName) {
     const addButton = document.getElementById("addButton");
 
-    if(sectionName === "wardrobe"){
+    if (sectionName === "wardrobe") {
         addButton.style.display = "block";
-    }
-    else{
+    } else {
         addButton.style.display = "none";
     }
 }
