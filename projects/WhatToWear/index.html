@@ -30,31 +30,42 @@
     </section>
 
     <div id="modal" class="modal" style="display: none">
-        <div class="modal-content"></div>
-        <div class="modal-overlay"></div>
-        <form id="addForm">
-            <input id="clothesName" type="text" name="clothesName" placeholder="Clothes" required>
-            <select id="clothesType" name="clothesType" required>
-                <option value="" disabled selected>Clothes</option>
-                <option value="head"> Head </option>
-                <option value="upperBody"> Upper Body </option>
-                <option value="lowerBody"> Lower Body </option>
-                <option value="dress"> Dress </option>
-                <option value="shoes"> Footwear </option>
-                <option value="Accessories"> Accessories </option>
-            </select>
-            <input type="checkbox" id="styles" name="styles" required>
-            <label for="styles"> Casual </label>
-            <label for="styles"> Smart casual </label>
-            <label for="styles"> Sport </label>
-            <label for="styles"> Formal </label>
-            <label for="styles"> Elegant </label>
-            <input type="color" required>
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content" id="modalContent">
+            <form id="addForm">
+                <input id="clothesName" type="text" name="clothesName" placeholder="Clothes" required>
 
-            <input type="submit">
-            <input type="button" id="cancelButton" value="Cancel">
+                <select id="clothesType" name="clothesType" required>
+                    <option value="" disabled selected>Clothes</option>
+                    <option value="head"> Head </option>
+                    <option value="upperBody"> Upper Body </option>
+                    <option value="lowerBody"> Lower Body </option>
+                    <option value="dress"> Dress </option>
+                    <option value="shoes"> Footwear </option>
+                    <option value="Accessories"> Accessories </option>
+                </select>
 
-        </form>
+                <div class="color-group">
+                    <label>Color:</label>
+                    <input type="color" id="clothesColor" value="#FF0000">
+                    <input type="text" id="colorName" placeholder="Color name">
+                </div>
+
+                <div class="checkbox-group">
+                    <label class="group-title">Style:</label>
+                    <label><input type="checkbox" name="styles" value="casual"> Casual</label>
+                    <label><input type="checkbox" name="styles" value="smartCasual"> Smart Casual</label>
+                    <label><input type="checkbox" name="styles" value="sport"> Sport</label>
+                    <label><input type="checkbox" name="styles" value="formal"> Formal</label>
+                    <label><input type="checkbox" name="styles" value="elegant"> Elegant</label>
+                </div>
+
+                <div class="formButtons">
+                    <button type="submit" id="submitButton"> Add </button>
+                    <button type="button" id="cancelButton"> Cancel </button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <script src="script.js"></script>
