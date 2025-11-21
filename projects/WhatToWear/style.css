@@ -175,28 +175,26 @@ section {
     font-size: 18px;
 }
 
-.form-buttons {
+.formButtons {
     display: flex;
+    justify-content: flex-end;
     gap: 10px;
     margin-top: 20px;
-    align-content: end;
 }
 
-.form-buttons button {
-    flex: 1;
-    width: 100%;
-    padding: 40px;
+.formButtons button {
+    padding: 15px 20px;
+    min-height: 50px;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
-    min-height: 44px;
 }
 
 #submitButton {
     background-color: #28a745;
     color: white;
-    border: 2px solid #2a2a2a;
-    border-radius: 8px;
 }
 
 #submitButton:active {
@@ -206,8 +204,6 @@ section {
 #cancelButton {
     background-color: #6c757d;
     color: white;
-    border: 2px solid #2a2a2a;
-    border-radius: 8px;
 }
 
 #cancelButton:active {
