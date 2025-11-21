@@ -82,7 +82,7 @@ document.getElementById("addForm").addEventListener("submit", e => {
 function renderWardrobe() {
     const clothesList = document.getElementById("clothesList");
     clothesList.innerHTML = '';
-    if (clothesList.length === 0) {
+    if (clothesArray.length === 0) {
         clothesList.innerHTML = "<p> No clothes yet. Add your first item </p>";
         return;
     }
@@ -96,6 +96,9 @@ function renderWardrobe() {
         <div class="clothesInfo">
             <h3> ${item.name} </h3>
             <p> ${item.type} </p>
+            <div class="tags">
+                ${item.styles.map(style => `<span class="tag">${style}</span>`).join('')}
+            </div>
         </div>
         <button class="deleteClothesButton" onclick="deleteClothes(${item.id})"> 🗑️ </button>
         `;
