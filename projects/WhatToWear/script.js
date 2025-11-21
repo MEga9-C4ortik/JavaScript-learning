@@ -1,7 +1,7 @@
 let clothesArray = [];
 let savedOutfitsArray = [];
 const addModal = document.getElementById("addClothesModal");
-const form = document.getElementById("form");
+const form = document.getElementById("addForm");
 const addButton = document.getElementById("addButton");
 const cancelButton = document.getElementById("cancelButton");
 const submitButton = document.getElementById("submitButton");
@@ -38,30 +38,23 @@ function showSection(sectionName){
     }
 }
 
-document.getElementById("wardrobeButton").addEventListener("click", () => {
-    showSection("wardrobe");
-});
+function deleteClothes(ItemID) {
+    if (confirm("Delete this item?")) {
+        const id = clothesArray.findIndex((item) => item.id === ItemID);
+        clothesArray.splice(id, 1);
+        saveData();
+        renderWardrobe();
+    }
+}
 
-document.getElementById("generatorButton").addEventListener("click", () => {
-    showSection("generator");
-});
-
-document.getElementById("savedButton").addEventListener("click", () => {
-    showSection("saved");
-});
-
-function openModal(){
+function openModal() {
     document.getElementById("addClothesModal").style.display = "block";
 }
 
-function closeModal(){
+function closeModal() {
     document.getElementById("addClothesModal").style.display = "none";
     document.getElementById("addForm").reset();
 }
-
-document.getElementById("addButton").addEventListener("click", () => openModal());
-document.getElementById("cancelButton").addEventListener("click", () => closeModal());
-document.getElementById("modalOverlay").addEventListener("click", () => closeModal());
 
 document.getElementById("addForm").addEventListener("submit", e => {
     e.preventDefault();
@@ -86,10 +79,10 @@ document.getElementById("addForm").addEventListener("submit", e => {
     closeModal();
 });
 
-function renderWardrobe(){
+function renderWardrobe() {
     const clothesList = document.getElementById("clothesList");
     clothesList.innerHTML = '';
-    if(clothesList.length === 0){
+    if (clothesList.length === 0) {
         clothesList.innerHTML = "<p> No clothes yet. Add your first item </p>";
         return;
     }
@@ -110,6 +103,23 @@ function renderWardrobe(){
         clothesList.appendChild(card);
     });
 }
+
+
+document.getElementById("wardrobeButton").addEventListener("click", () => {
+    showSection("wardrobe");
+});
+
+document.getElementById("generatorButton").addEventListener("click", () => {
+    showSection("generator");
+});
+
+document.getElementById("savedButton").addEventListener("click", () => {
+    showSection("saved");
+});
+
+document.getElementById("addButton").addEventListener("click", () => openModal());
+document.getElementById("cancelButton").addEventListener("click", () => closeModal());
+document.getElementById("modalOverlay").addEventListener("click", () => closeModal());
 
 loadData();
 renderWardrobe();
