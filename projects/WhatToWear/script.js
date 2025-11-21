@@ -1,6 +1,6 @@
 let clothesArray = [];
 let savedOutfitsArray = [];
-const modal = document.getElementById("modal");
+const addModal = document.getElementById("addClothesModal");
 const form = document.getElementById("form");
 const addButton = document.getElementById("addButton");
 const cancelButton = document.getElementById("cancelButton");
@@ -51,11 +51,11 @@ document.getElementById("savedButton").addEventListener("click", () => {
 });
 
 function openModal(){
-    document.getElementById("modal").style.display = "block";
+    document.getElementById("addClothesModal").style.display = "block";
 }
 
 function closeModal(){
-    document.getElementById("modal").style.display = "none";
+    document.getElementById("addClothesModal").style.display = "none";
     document.getElementById("addForm").reset();
 }
 
@@ -63,6 +63,54 @@ document.getElementById("addButton").addEventListener("click", () => openModal()
 document.getElementById("cancelButton").addEventListener("click", () => closeModal());
 document.getElementById("modalOverlay").addEventListener("click", () => closeModal());
 
-loadData();
-showSection("wardrobe");
+document.getElementById("addForm").addEventListener("submit", e => {
+    e.preventDefault();
+    const name = document.getElementById("clothesName").value;
+    const type = document.getElementById("clothesType").value;
+    const color = document.getElementById("clothesColor").value;
+    const styles = Array.from(document.querySelectorAll('input[name="styles"]:checked')).map(cb => cb.value);
 
+    const newItem = {
+        id: Date.now(),
+        name: name,
+        type: type,
+        color: color,
+        styles: styles,
+    }
+
+    clothesArray.push(newItem);
+    saveData();
+    renderWardrobe();
+    console.log("Добавлено:", newItem);
+    console.log("Весь массив:", clothesArray);
+    closeModal();
+});
+
+function renderWardrobe(){
+    const clothesList = document.getElementById("clothesList");
+    clothesList.innerHTML = '';
+    if(clothesList.length === 0){
+        clothesList.innerHTML = "<p> No clothes yet. Add your first item </p>";
+        return;
+    }
+
+    clothesArray.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "clothesCard";
+
+        card.innerHTML = `
+        <div class="colorBox" style="background-color: ${item.color}"></div>
+        <div class="clothesInfo">
+            <h3> ${item.name} </h3>
+            <p> ${item.type} </p>
+        </div>
+        <button class="deleteClothesButton" onclick="deleteClothes(${item.id})"> 🗑️ </button>
+        `;
+
+        clothesList.appendChild(card);
+    });
+}
+
+loadData();
+renderWardrobe();
+showSection("wardrobe");

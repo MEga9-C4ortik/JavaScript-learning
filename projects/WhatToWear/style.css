@@ -209,3 +209,34 @@ section {
 #cancelButton:active {
     background-color: #be1818;
 }
+
+.clothesCard {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    padding: 15px;
+}
+
+.colorBox {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.clothesInfo {
+    flex: 1;
+}
+
+.clothesInfo h3 {
+    color: #ffffff;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.clothesInfo p {
+    color: #888888;
+    font-size: 16px;
+}
