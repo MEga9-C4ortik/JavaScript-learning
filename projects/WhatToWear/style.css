@@ -318,7 +318,14 @@ section {
     padding: 15px;
 }
 
-generatedCard h3 {
+.category-label {
+    color: #888888;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.generatedCard h3 {
     color: #ffffff;
     font-size: 20px;
 }

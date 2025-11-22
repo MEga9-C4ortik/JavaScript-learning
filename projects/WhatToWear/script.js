@@ -94,12 +94,33 @@ function renderWardrobe() {
     clothesArray.forEach(item => {
         const card = document.createElement("div");
         card.className = "clothesCard";
+        let type = item.type;
+        switch (type) {
+            case "head":
+                type = "Head";
+                break;
+            case "upperBody":
+                type = "UpperBody";
+                break;
+            case "lowerBody":
+                type = "LowerBody";
+                break;
+            case "dress":
+                type = "Dress";
+                break;
+            case "shoes":
+                type = "Shoes";
+                break;
+            case "accessories":
+                type = "Accessories";
+                break;
+        }
 
         card.innerHTML = `
             <div class="colorBox" style="background-color: ${item.color}"></div>
             <div class="clothesInfo">
                 <h3> ${item.name} </h3>
-                <p> ${item.type} </p>
+                <p> ${type} </p>
                 <div class="tags">
                     ${item.styles.map(style => `<span class="tag">${style}</span>`).join('')}
                 </div>
@@ -122,6 +143,7 @@ function createOutfitCard(clothes,type){
     card.innerHTML = `
         <div class="colorBox" style="background-color: ${clothes.color}"></div>
         <div class="generatedOutfitCardInfo">
+            <p class="category-label">${type}</p>
             <h3> ${clothes.name} </h3>
         </div>
     `;
