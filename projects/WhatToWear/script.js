@@ -1,5 +1,6 @@
 let clothesArray = [];
 let savedOutfitsArray = [];
+let currentOutfit = null;
 const addModal = document.getElementById("addClothesModal");
 const form = document.getElementById("addForm");
 const addButton = document.getElementById("addButton");
@@ -79,8 +80,6 @@ document.getElementById("addForm").addEventListener("submit", e => {
     clothesArray.push(newItem);
     saveData();
     renderWardrobe();
-    console.log("Добавлено:", newItem);
-    console.log("Весь массив:", clothesArray);
     closeModal();
 });
 
@@ -97,27 +96,61 @@ function renderWardrobe() {
         card.className = "clothesCard";
 
         card.innerHTML = `
-        <div class="colorBox" style="background-color: ${item.color}"></div>
-        <div class="clothesInfo">
-            <h3> ${item.name} </h3>
-            <p> ${item.type} </p>
-            <div class="tags">
-                ${item.styles.map(style => `<span class="tag">${style}</span>`).join('')}
+            <div class="colorBox" style="background-color: ${item.color}"></div>
+            <div class="clothesInfo">
+                <h3> ${item.name} </h3>
+                <p> ${item.type} </p>
+                <div class="tags">
+                    ${item.styles.map(style => `<span class="tag">${style}</span>`).join('')}
+                </div>
             </div>
-        </div>
-        <button class="deleteClothesButton" onclick="deleteClothes(${item.id})"> 🗑️ </button>
+            <button class="deleteClothesButton" onclick="deleteClothes(${item.id})"> 🗑️ </button>
         `;
 
         clothesList.appendChild(card);
     });
 }
 
+function createOutfitCard(clothes,type){
+    if (!clothes){
+        return;
+    }
+    const generatedOutfit = document.getElementById("generatedOutfit");
+    const card = document.createElement("div");
+    card.className = "generatedCard";
+
+    card.innerHTML = `
+        <div class="colorBox" style="background-color: ${clothes.color}"></div>
+        <div class="generatedOutfitCardInfo">
+            <h3> ${clothes.name} </h3>
+        </div>
+    `;
+
+    generatedOutfit.appendChild(card);
+}
+
+function renderOutfit(){
+    document.getElementById("generatedOutfit").innerHTML = '';
+
+    if(currentOutfit){
+        createOutfitCard(currentOutfit.head, "head");
+        createOutfitCard(currentOutfit.upperBody, "upper");
+        createOutfitCard(currentOutfit.lowerBody, "lower");
+        createOutfitCard(currentOutfit.shoes, "shoes");
+        createOutfitCard(currentOutfit.dress, "dress");
+        createOutfitCard(currentOutfit.accessories, "accessories");
+    }
+    else{
+        return;
+    }
+}
+
 function generateOutfit(){
-    const selectedStyles = document.querySelector('input[name="styleFilter"]:checked');
+    const selectedStyles = document.querySelector('input[name="styleFilter"]:checked').value;
 
     let filtered;
     if(selectedStyles === "any"){
-        filtered = selectedStyles;
+        filtered = clothesArray;
     }else{
         filtered = clothesArray.filter(item => item.styles.includes(selectedStyles));
     }
@@ -126,6 +159,20 @@ function generateOutfit(){
     const upperBody = filtered.filter(item => item.type === "upperBody");
     const lowerBody = filtered.filter(item => item.type === "lowerBody");
     const shoes = filtered.filter(item => item.type === "shoes");
+    const dress = filtered.filter(item => item.type === "dress");
+    const accessories = filtered.filter(item => item.type === "accessories");
+
+    currentOutfit = {
+        head: getRandomItem(head),
+        upperBody: getRandomItem(upperBody),
+        lowerBody: getRandomItem(lowerBody),
+        shoes: getRandomItem(shoes),
+        dress: getRandomItem(dress),
+        accessories: getRandomItem(accessories),
+    };
+
+    renderOutfit();
+    document.getElementById("saveOutfitButton").style.display = "block";
 }
 
 document.getElementById("wardrobeButton").addEventListener("click", () => {
@@ -140,10 +187,10 @@ document.getElementById("savedButton").addEventListener("click", () => {
     showSection("saved");
 });
 
-document.getElementById("addButton").addEventListener("click", () => openModal());
-document.getElementById("cancelButton").addEventListener("click", () => closeModal());
-document.getElementById("modalOverlay").addEventListener("click", () => closeModal());
-
+document.getElementById("addButton").addEventListener("click", openModal);
+document.getElementById("cancelButton").addEventListener("click", closeModal);
+document.getElementById("modalOverlay").addEventListener("click", closeModal);
+document.getElementById("generateButton").addEventListener("click", generateOutfit);
 loadData();
 renderWardrobe();
 showSection("wardrobe");
