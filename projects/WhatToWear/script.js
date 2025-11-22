@@ -24,6 +24,11 @@ function loadData(){
     }
 }
 
+function getRandomItem(array){
+    if (array.length == 0) return null;
+    return array[Math.floor(Math.random() * array.length)];
+}
+
 function showSection(sectionName){
     document.getElementById("wardrobe").style.display = "none";
     document.getElementById("generator").style.display = "none";
@@ -107,6 +112,21 @@ function renderWardrobe() {
     });
 }
 
+function generateOutfit(){
+    const selectedStyles = document.querySelector('input[name="styleFilter"]:checked');
+
+    let filtered;
+    if(selectedStyles === "any"){
+        filtered = selectedStyles;
+    }else{
+        filtered = clothesArray.filter(item => item.styles.includes(selectedStyles));
+    }
+
+    const head = filtered.filter(item => item.type === "head");
+    const upperBody = filtered.filter(item => item.type === "upperBody");
+    const lowerBody = filtered.filter(item => item.type === "lowerBody");
+    const shoes = filtered.filter(item => item.type === "shoes");
+}
 
 document.getElementById("wardrobeButton").addEventListener("click", () => {
     showSection("wardrobe");
