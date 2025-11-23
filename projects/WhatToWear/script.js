@@ -153,6 +153,7 @@ function createOutfitCard(clothes,type){
 
 function renderOutfit(){
     document.getElementById("generatedOutfit").innerHTML = '';
+    document.querySelector("style-filter").display = "none";
 
     if(currentOutfit){
         createOutfitCard(currentOutfit.head, "head");
@@ -165,6 +166,9 @@ function renderOutfit(){
     else{
         return;
     }
+
+    document.getElementById("saveOutfitButton").style.display = "block";
+    document.getElementById("changeStyle").style.display = "block";
 }
 
 function generateOutfit(){
@@ -194,7 +198,6 @@ function generateOutfit(){
     };
 
     renderOutfit();
-    document.getElementById("saveOutfitButton").style.display = "block";
 }
 
 document.getElementById("wardrobeButton").addEventListener("click", () => {
