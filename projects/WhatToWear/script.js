@@ -62,6 +62,17 @@ function closeModal() {
     document.getElementById("addForm").reset();
 }
 
+function changeStyleButton(){
+    document.getElementById(".style-filter").style.display = "flex";
+    document.getElementById("generatedOutfit").innerHTML = '';
+    document.getElementById("changeStyle").style.display = "none";
+    document.getElementById("saveOutfitButton").style.display = "none";
+}
+
+function saveOutfit(){
+
+}
+
 document.getElementById("addForm").addEventListener("submit", e => {
     e.preventDefault();
     const name = document.getElementById("clothesName").value;
@@ -100,10 +111,10 @@ function renderWardrobe() {
                 type = "Head";
                 break;
             case "upperBody":
-                type = "UpperBody";
+                type = "Upper Body";
                 break;
             case "lowerBody":
-                type = "LowerBody";
+                type = "Lower Body";
                 break;
             case "dress":
                 type = "Dress";
@@ -216,9 +227,8 @@ document.getElementById("addButton").addEventListener("click", openModal);
 document.getElementById("cancelButton").addEventListener("click", closeModal);
 document.getElementById("modalOverlay").addEventListener("click", closeModal);
 document.getElementById("generateButton").addEventListener("click", generateOutfit);
-document.getElementById("changeStyle").addEventListener("click", () => {
-    docu
-});
+document.getElementById("changeStyle").addEventListener("click", changeStyleButton);
+document.getElementById("saveOutfitButton").addEventListener("click", saveOutfit);
 
 loadData();
 renderWardrobe();
