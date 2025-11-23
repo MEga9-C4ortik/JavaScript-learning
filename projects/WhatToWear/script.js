@@ -153,7 +153,7 @@ function createOutfitCard(clothes,type){
 
 function renderOutfit(){
     document.getElementById("generatedOutfit").innerHTML = '';
-    document.querySelector("style-filter").display = "none";
+    document.querySelector(".style-filter").style.display = "none";
 
     if(currentOutfit){
         createOutfitCard(currentOutfit.head, "head");
@@ -216,6 +216,10 @@ document.getElementById("addButton").addEventListener("click", openModal);
 document.getElementById("cancelButton").addEventListener("click", closeModal);
 document.getElementById("modalOverlay").addEventListener("click", closeModal);
 document.getElementById("generateButton").addEventListener("click", generateOutfit);
+document.getElementById("changeStyle").addEventListener("click", () => {
+    docu
+});
+
 loadData();
 renderWardrobe();
 showSection("wardrobe");

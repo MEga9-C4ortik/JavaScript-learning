@@ -282,7 +282,7 @@ section {
 
 #generateButton {
     position: fixed;
-    bottom: 100px;
+    bottom: 170px;
     width: 90%;
     left: 50%;
     transform: translateX(-50%);
@@ -301,12 +301,12 @@ section {
     z-index: 99;
 }
 
-#generatedCard {
+#generatedOutfit {
     display: flex;
     flex-direction: column;
     gap: 10px;
     margin-top: 20px;
-    margin-bottom: 180px;
+    margin-bottom: 250px;
 }
 
 .generatedCard {
@@ -336,14 +336,21 @@ section {
 }
 
 #saveOutfitButton {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 40px;
-    width: 100px;
-    height: 70px;
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 400px;
+    padding: 15px 20px;
     border: none;
-    border-radius: 10px;
-    background-color: #bac3ff;
+    border-radius: 8px;
+    background-color: #28a745;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 99;
 }
 
 #saveOutfitButton:active {
@@ -354,6 +361,7 @@ section {
 #changeStyle {
     position: fixed;
     bottom: 30px;
+    left: 50%;
     transform: translateX(-50%);
     width: 90%;
     max-width: 400px;
