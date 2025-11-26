@@ -71,7 +71,6 @@ function changeStyleButton(){
 
 function saveOutfit(){
     if(!currentOutfit){
-        alert("No outfit to save");
         return;
     }
     const OutfitToBeSaved = {
