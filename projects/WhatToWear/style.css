@@ -77,7 +77,7 @@ section {
 }
 
 #modal {
-    position: relative;
+    position: fixed;
     display: flex;
     top: 0;
     left: 0;
@@ -262,6 +262,21 @@ section {
     background-color: #105c78;
 }
 
+.deleteClothesButton {
+    width: 44px;
+    height: 44px;
+    background-color: #E63946;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.deleteClothesButton:active {
+    background-color: #E63946;
+    transform: scale(0.95);
+}
+
 .style-filter {
     display: flex;
     flex-direction: column;
@@ -281,27 +296,6 @@ section {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
-}
-
-#generateButton {
-    position: fixed;
-    bottom: 170px;
-    width: 90%;
-    left: 50%;
-    transform: translateX(-50%);
-    max-width: 400px;
-    height: auto;
-    padding: 15px 20px;
-    border: 2px solid #457B9D;
-    border-radius: 8px;
-    background-color: #457B9D;
-    color: #B5FF9C;
-    font-size: 20px;
-    font-weight: bold;
-    line-height: normal;
-    text-align: center;
-    cursor: pointer;
-    z-index: 99;
 }
 
 #generatedOutfit {
@@ -338,9 +332,27 @@ section {
     font-size: 16px;
 }
 
+#generateButton {
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 400px;
+    padding: 15px 20px;
+    border: 2px solid #457B9D;
+    border-radius: 8px;
+    background-color: #457B9D;
+    color: #B5FF9C;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 99;
+}
+
 #saveOutfitButton {
     position: fixed;
-    bottom: 100px;
+    bottom: 150px;
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
@@ -350,7 +362,7 @@ section {
     border-radius: 8px;
     background-color: #B5FF9C;
     color: #E63946;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     cursor: pointer;
     z-index: 99;
@@ -363,7 +375,7 @@ section {
 
 #changeStyle {
     position: fixed;
-    bottom: 30px;
+    bottom: 220px;
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
@@ -373,7 +385,7 @@ section {
     border-radius: 8px;
     background-color: #457B9D;
     color: #B5FF9C;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
     cursor: pointer;
     z-index: 99;

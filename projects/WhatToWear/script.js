@@ -63,7 +63,7 @@ function closeModal() {
 }
 
 function changeStyleButton(){
-    document.getElementById(".style-filter").style.display = "flex";
+    document.querySelector(".style-filter").style.display = "flex";
     document.getElementById("generatedOutfit").innerHTML = '';
     document.getElementById("changeStyle").style.display = "none";
     document.getElementById("saveOutfitButton").style.display = "none";
