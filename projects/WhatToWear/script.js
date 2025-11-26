@@ -26,7 +26,7 @@ function loadData(){
 }
 
 function getRandomItem(array){
-    if (array.length == 0) return null;
+    if (array.length === 0) return null;
     return array[Math.floor(Math.random() * array.length)];
 }
 
@@ -70,7 +70,129 @@ function changeStyleButton(){
 }
 
 function saveOutfit(){
- 
+    if(!currentOutfit){
+        alert("No outfit to save");
+        return;
+    }
+    const OutfitToBeSaved = {
+        id: Date.now(),
+        date: new Date().toLocaleDateString(),
+        outfit: currentOutfit
+    }
+    savedOutfitsArray.push(OutfitToBeSaved);
+    saveData();
+    alert("Outfit saved");
+    renderSavedOutfits();
+}
+
+function renderSavedOutfits() {
+    const container = document.getElementById("savedOutfits");
+    container.innerHTML = '';
+
+    if (savedOutfitsArray.length === 0) {
+        container.innerHTML = '<p style="color: #457B9D;">No saved outfits yet</p>';
+        return;
+    }
+
+    savedOutfitsArray.forEach(savedOutfit => {
+        const card = document.createElement("div");
+        card.className = "savedOutfitCard";
+
+        let html = `
+            <h2>Outfit #${savedOutfit.id}</h2>
+            <p class="date">Saved: ${savedOutfit.date}</p>
+            <div class="savedOutfitItems">
+        `;
+
+        if (savedOutfit.outfit.head) {
+            html += `
+                <div class="generatedCard">
+                    <div class="colorBox" style="background-color: ${savedOutfit.outfit.head.color}"></div>
+                    <div>
+                        <p class="category-label">Head</p>
+                        <h3>${savedOutfit.outfit.head.name}</h3>
+                    </div>
+                </div>
+            `;
+        }
+
+        if (savedOutfit.outfit.upperBody) {
+            html += `
+                <div class="generatedCard">
+                    <div class="colorBox" style="background-color: ${savedOutfit.outfit.upperBody.color}"></div>
+                    <div>
+                        <p class="category-label">Upper Body</p>
+                        <h3>${savedOutfit.outfit.upperBody.name}</h3>
+                    </div>
+                </div>
+            `;
+        }
+
+        if (savedOutfit.outfit.lowerBody) {
+            html += `
+                <div class="generatedCard">
+                    <div class="colorBox" style="background-color: ${savedOutfit.outfit.lowerBody.color}"></div>
+                    <div>
+                        <p class="category-label">Lower Body</p>
+                        <h3>${savedOutfit.outfit.lowerBody.name}</h3>
+                    </div>
+                </div>
+            `;
+        }
+
+        if (savedOutfit.outfit.shoes) {
+            html += `
+                <div class="generatedCard">
+                    <div class="colorBox" style="background-color: ${savedOutfit.outfit.shoes.color}"></div>
+                    <div>
+                        <p class="category-label">Shoes</p>
+                        <h3>${savedOutfit.outfit.shoes.name}</h3>
+                    </div>
+                </div>
+            `;
+        }
+
+        if (savedOutfit.outfit.dress) {
+            html += `
+                <div class="generatedCard">
+                    <div class="colorBox" style="background-color: ${savedOutfit.outfit.dress.color}"></div>
+                    <div>
+                        <p class="category-label">Dress</p>
+                        <h3>${savedOutfit.outfit.dress.name}</h3>
+                    </div>
+                </div>
+            `;
+        }
+
+        if (savedOutfit.outfit.accessories) {
+            html += `
+                <div class="generatedCard">
+                    <div class="colorBox" style="background-color: ${savedOutfit.outfit.accessories.color}"></div>
+                    <div>
+                        <p class="category-label">Accessories</p>
+                        <h3>${savedOutfit.outfit.accessories.name}</h3>
+                    </div>
+                </div>
+            `;
+        }
+
+        html += `
+            </div>
+            <button class="deleteSavedButton" onclick="deleteSavedOutfit(${savedOutfit.id})">🗑️ Delete Outfit</button>
+        `;
+
+        card.innerHTML = html;
+        container.appendChild(card);
+    });
+}
+
+function deleteSavedOutfit(outfitId) {
+    if (confirm("Delete this saved outfit?")) {
+        const index = savedOutfitsArray.findIndex(outfit => outfit.id === outfitId);
+        savedOutfitsArray.splice(index, 1);
+        saveData();
+        renderSavedOutfits();
+    }
 }
 
 document.getElementById("addForm").addEventListener("submit", e => {
@@ -228,7 +350,11 @@ document.getElementById("cancelButton").addEventListener("click", closeModal);
 document.getElementById("modalOverlay").addEventListener("click", closeModal);
 document.getElementById("generateButton").addEventListener("click", generateOutfit);
 document.getElementById("changeStyle").addEventListener("click", changeStyleButton);
-document.getElementById("saveOutfitButton").addEventListener("click", saveOutfit);
+document.getElementById("savedButton").addEventListener("click", () => {
+    saveOutfit();
+    showSection("saved");
+    renderSavedOutfits();
+});
 
 loadData();
 renderWardrobe();
