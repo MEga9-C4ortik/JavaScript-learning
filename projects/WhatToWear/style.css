@@ -6,14 +6,14 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-    background-color: #A8DADC;
+    background-color: #f5ebe0;
     padding-bottom: 70px;
 }
 
 h1 {
     display: flex;
     font-size: 40px;
-    color: #E63946;
+    color: #686868;
     margin-bottom: 20px;
 }
 
@@ -23,15 +23,15 @@ h1 {
     left: 0;
     width: 100%;
     display: flex;
-    background-color: #457B9D;
+    background-color: #d5bdaf;
 
 }
 
 .navbar button{
-    color: #B5FF9C;
+    color: #686868;
     flex: 1;
     height: 60px;
-    border: 1.38px solid #E63946;
+    border: 1.38px solid #d6ccc2;
     background: none;
     font-size: 20px;
     cursor: pointer;
@@ -53,8 +53,8 @@ section {
     height: 56px;
     bottom: 80px;
     right: 20px;
-    background-color: #B5FF9C;
-    color: #E63946;
+    background-color: #9e8578;
+    color: #edede9;
     border: none;
     border-radius: 50%;
     font-size: 32px;
@@ -67,7 +67,7 @@ section {
 
 #addButton:active {
      transform: scale(0.95);
-     background-color: #55bb70;
+     background-color: #5e5048;
  }
 
 #clothesList {
@@ -216,7 +216,7 @@ section {
     display: flex;
     align-items: center;
     gap: 15px;
-    background-color: #D9D9D9;
+    background-color: #d6ccc2;
     border-radius: 12px;
     padding: 15px;
 }
@@ -233,13 +233,13 @@ section {
 }
 
 .clothesInfo h3 {
-    color: #457B9D;
+    color: #686868;
     font-size: 20px;
     margin-bottom: 5px;
 }
 
 .clothesInfo p {
-    color: #457B9D  ;
+    color: #686868  ;
     font-size: 16px;
 }
 
@@ -251,29 +251,32 @@ section {
 }
 
 .tag {
-    background-color: #457B9D;
-    color: #B5FF9C;
+    background-color: #f5ebe0;
+    color: #686868;
     padding: 4px 8px;
     border-radius: 4px;
     font-size: 18px;
 }
 .tag:hover {
-    color: #A8DADC;
-    background-color: #105c78;
+    color: #4d4747;
+    background-color: #d5bdaf;
 }
 
 .deleteClothesButton {
     width: 44px;
     height: 44px;
-    background-color: #E63946;
+    background-color: #ffffff;
     border: none;
     border-radius: 8px;
     font-size: 20px;
     cursor: pointer;
 }
 
-.deleteClothesButton:active {
+.deleteClothesButton:hover {
     background-color: #E63946;
+}
+
+.deleteClothesButton:active {
     transform: scale(0.95);
 }
 
@@ -283,7 +286,7 @@ section {
     gap: 10px;
     margin-top: 20px;
     margin-bottom: 150px;
-    color: #457B9D;
+    color: #989388;
     font-size: 16px;
 }
 
@@ -310,25 +313,25 @@ section {
     display: flex;
     align-items: center;
     gap: 15px;
-    background-color: #D9D9D9;
+    background-color: #d6ccc2;
     border-radius: 12px;
     padding: 15px;
 }
 
 .category-label {
-    color: #457B9D;
+    color: #686868;
     font-size: 12px;
     text-transform: uppercase;
     margin-bottom: 4px;
 }
 
 .generatedCard h3 {
-    color: #457B9D;
+    color: #686868;
     font-size: 20px;
 }
 
 .generatedCard p {
-    color: #E63946;
+    color: #686868;
     font-size: 16px;
 }
 
@@ -340,10 +343,10 @@ section {
     width: 90%;
     max-width: 400px;
     padding: 15px 20px;
-    border: 2px solid #457B9D;
+    border: 2px solid #e3d5ca;
     border-radius: 8px;
-    background-color: #457B9D;
-    color: #B5FF9C;
+    background-color: #d5bdaf;
+    color: #f5ebe0;
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
@@ -360,8 +363,8 @@ section {
     padding: 15px 20px;
     border: none;
     border-radius: 8px;
-    background-color: #B5FF9C;
-    color: #E63946;
+    background-color: #d5bdaf;
+    color: #f5ebe0;
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
@@ -369,7 +372,7 @@ section {
 }
 
 #saveOutfitButton:active {
-    background-color: #559dec;
+    background-color: #7d6e65;
     scale: 0.9;
 }
 
@@ -383,8 +386,8 @@ section {
     padding: 12px 20px;
     border: 2px solid #D9D9D9;
     border-radius: 8px;
-    background-color: #457B9D;
-    color: #B5FF9C;
+    background-color: #d5bdaf;
+    color: #f5ebe0;
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
