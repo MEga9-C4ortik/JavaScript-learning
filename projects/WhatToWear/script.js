@@ -70,7 +70,7 @@ function changeStyleButton(){
 }
 
 function saveOutfit(){
-
+ 
 }
 
 document.getElementById("addForm").addEventListener("submit", e => {
