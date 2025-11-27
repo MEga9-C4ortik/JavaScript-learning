@@ -394,13 +394,45 @@ section {
     z-index: 99;
 }
 
-#savedOutfits {
+.savedOutfitCard {
+    background-color: #d6ccc2;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.savedOutfitCard h2 {
+    color: #686868;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.savedOutfitCard .date {
+    color: #989388;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.savedOutfitItems {
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    margin-top: 20px;
-    margin-bottom: 250px;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.deleteSavedButton {
+    width: 100%;
+    padding: 12px;
+    background-color: #9e8578;
+    color: #edede9;
     border: none;
-    border-radius: 10px;
-    background-color: #d6ccc2;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.deleteSavedButton:active {
+    background-color: #5e5048;
+    transform: scale(0.98);
 }

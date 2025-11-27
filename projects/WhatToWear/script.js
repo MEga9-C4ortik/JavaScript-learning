@@ -73,15 +73,23 @@ function saveOutfit(){
     if(!currentOutfit){
         return;
     }
+    const now = new Date();
+    const date = now.toLocaleDateString('en-GB');
+    const time = now.toLocaleTimeString('en-GB', {
+        hour: '2-digit',
+        minute: '2-digit'
+    });  // HH:MM
+
     const OutfitToBeSaved = {
         id: Date.now(),
-        date: new Date().toLocaleDateString(),
+        date: `${date} at ${time}`,
         outfit: currentOutfit
-    }
+    };
+
     savedOutfitsArray.push(OutfitToBeSaved);
     saveData();
-    alert("Outfit saved");
     renderSavedOutfits();
+    alert("Outfit saved");
 }
 
 function renderSavedOutfits() {
@@ -99,7 +107,7 @@ function renderSavedOutfits() {
 
         let html = `
             <h2>Outfit #${savedOutfit.id}</h2>
-            <h3> Style #${savedOutfit.outfit.style}</h3>
+            <h3> Style ${savedOutfit.outfit.style}</h3>
             <p class="date">Saved: ${savedOutfit.date}</p>
             <div class="savedOutfitItems">
         `;
@@ -329,6 +337,7 @@ function generateOutfit(){
         shoes: getRandomItem(shoes),
         dress: getRandomItem(dress),
         accessories: getRandomItem(accessories),
+        style: selectedStyles,
     };
 
     renderOutfit();
@@ -342,8 +351,7 @@ document.getElementById("generatorButton").addEventListener("click", () => {
     showSection("generator");
 });
 
-document.getElementById("saveOutfitButton").addEventListener("click", () => {
-    saveOutfit();
+document.getElementById("savedButton").addEventListener("click", () => {
     showSection("saved");
     renderSavedOutfits();
 });
@@ -353,8 +361,9 @@ document.getElementById("cancelButton").addEventListener("click", closeModal);
 document.getElementById("modalOverlay").addEventListener("click", closeModal);
 document.getElementById("generateButton").addEventListener("click", generateOutfit);
 document.getElementById("changeStyle").addEventListener("click", changeStyleButton);
-document.getElementById("savedButton").addEventListener("click", () => {
+document.getElementById("saveOutfitButton").addEventListener("click", () => {
     saveOutfit();
+    showSection("saved");
 });
 
 loadData();
