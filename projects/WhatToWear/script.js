@@ -99,6 +99,7 @@ function renderSavedOutfits() {
 
         let html = `
             <h2>Outfit #${savedOutfit.id}</h2>
+            <h3> Style #${savedOutfit.outfit.style}</h3>
             <p class="date">Saved: ${savedOutfit.date}</p>
             <div class="savedOutfitItems">
         `;
@@ -182,6 +183,7 @@ function renderSavedOutfits() {
 
         card.innerHTML = html;
         container.appendChild(card);
+        showSection("saved");
     });
 }
 
@@ -340,8 +342,10 @@ document.getElementById("generatorButton").addEventListener("click", () => {
     showSection("generator");
 });
 
-document.getElementById("savedButton").addEventListener("click", () => {
+document.getElementById("saveOutfitButton").addEventListener("click", () => {
+    saveOutfit();
     showSection("saved");
+    renderSavedOutfits();
 });
 
 document.getElementById("addButton").addEventListener("click", openModal);
@@ -351,8 +355,6 @@ document.getElementById("generateButton").addEventListener("click", generateOutf
 document.getElementById("changeStyle").addEventListener("click", changeStyleButton);
 document.getElementById("savedButton").addEventListener("click", () => {
     saveOutfit();
-    showSection("saved");
-    renderSavedOutfits();
 });
 
 loadData();

@@ -393,3 +393,14 @@ section {
     cursor: pointer;
     z-index: 99;
 }
+
+#savedOutfits {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 20px;
+    margin-bottom: 250px;
+    border: none;
+    border-radius: 10px;
+    background-color: #d6ccc2;
+}
