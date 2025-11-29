@@ -18,11 +18,17 @@ body {
     height: 60px;
     background-color: #15151E;
     display: flex;
-    align-items: center;
-    text-align: right;
+    align-items: flex-end;
+    align-content: space-between;
     padding: 0 20px;
     z-index: 99;
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.header h1 {
+    align-items: end;
+    font-size: 30px;
+    font-weight: bold;
 }
 
 .hamburger {
@@ -35,15 +41,9 @@ body {
     margin-right: 15px;
 }
 
-.header h1 {
-    align-items: end;
-    font-size: 30px;
-    font-weight: bold;
-}
-
 #mainContent {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 60px;
     padding: 20px;
     min-height: calc(100vh - 60px);
 }
@@ -55,7 +55,7 @@ body {
     margin-bottom: 20px;
 }
 
-overlay {
+.overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -73,8 +73,8 @@ overlay {
 .sidenav {
     position: fixed;
     top: 0;
-    left: -300px;
-    width: 300px;
+    left: -320px;
+    width: 320px;
     height: 100%;
     background-color: #1A1A1A;
     z-index: 99;
@@ -86,29 +86,16 @@ overlay {
     left: 0;
 }
 
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 36px;
-    cursor: pointer;
-    padding: 5px 10px;
-}
-
-.menu-list {
+.sidenavList{
     list-style: none;
     margin-top: 60px;
     padding: 0;
 }
-
-.menu-list li {
+.sidenavList li {
     border-bottom: 1px solid #2A2A2A;
 }
 
-.menu-item {
+.sidenavListItem {
     width: 100%;
     text-align: left;
     padding: 20px 25px;
@@ -120,39 +107,86 @@ overlay {
     transition: background 0.2s;
 }
 
-.menu-item:hover {
+.sidenavListItem:hover {
     background-color: #2A2A2A;
 }
 
-.menu-item:active {
+.sidenavListItem:active {
     background-color: #E10600;
+}
+
+.rightSidebar {
+    display: none;
 }
 
 @media (min-width: 768px) {
     .sidenav {
-        width: 350px;
-        left: -350px;
+        width: 300px;
+        left: -300px;
     }
 
-    .menu-item {
+    .sidenavListItem {
         font-size: 20px;
         padding: 25px 30px;
     }
 }
 
 @media (min-width: 1024px) {
+    .header {
+        left: 250px;
+        width: calc(100% - 250px);
+    }
     .sidenav {
-        left: 0;
+        width: 250px;
+        left: 250px;
         position: fixed;
     }
 
     #mainContent {
-        margin-left: 280px;
+        margin-left: 250px;
         max-width: 1200px;
     }
 
     .hamburger {
         display: none;
+    }
+
+    .rightSidebar {
+        display: block;
+        position: fixed;
+        right: 0;
+        top: 60px;
+        width: 280px;
+        height: calc(100% - 60px);
+        background-color: #1A1A1A;
+        padding: 20px;
+        overflow-y: auto;
+    }
+
+    .stat-card {
+        background-color: #2A2A2A;
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    .stat-label {
+        color: #888;
+        font-size: 20px;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+    }
+
+    .stat-value {
+        color: #fff;
+        font-size: 25px;
+        font-weight: bold;
+        margin-bottom: 3px;
+    }
+
+    .stat-detail {
+        color: #aaa;
+        font-size: 20px;
     }
 
     .overlay {

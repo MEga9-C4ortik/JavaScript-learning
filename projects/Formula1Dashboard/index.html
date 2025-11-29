@@ -6,6 +6,28 @@
     <link rel="stylesheet" href="style.css">
     <title> F1 Dashboard </title>
 </head>
+
+<aside class="rightSidebar">
+    <h3>Quick Stats</h3>
+    <div class="stat-card">
+        <p class="stat-label">Championship Leader</p>
+        <p class="stat-value">Lando Norris </p>
+        <p class="stat-detail">390 points</p>
+    </div>
+
+    <div class="stat-card">
+        <p class="stat-label">Next Race</p>
+        <p class="stat-value" id="nextRace">Loading...</p>
+        <p class="stat-detail" id="countdown">...</p>
+    </div>
+
+    <div class="stat-card">
+        <p class="stat-label">Last Winner</p>
+        <p class="stat-value"> Max Verstappen</p>
+        <p class="stat-detail">Las vegas</p>
+    </div>
+</aside>
+
 <body>
     <header class="header">
         <button id="hamburgerButton" class="hamburger"> ☰ </button>
@@ -15,9 +37,8 @@
     <div class="overlay" id="overlay"></div>
 
     <div id="sidenav" class="sidenav">
-        <button id="sidenavCloseButton" class="sidenavCloseButton"> × </button>
         <div class="sidenavContent">
-            <ul class="sidenavList" id="sidenavList" style="display: none">
+            <ul class="sidenavList" id="sidenavList">
                 <li><button class="sidenavListItem" data-section="driversStandings"> Drivers Standings </button></li>
                 <li><button class="sidenavListItem" data-section="teamsStandings"> Teams Standings </button></li>
                 <li><button class="sidenavListItem" data-section="schedule"> Schedule </button></li>
