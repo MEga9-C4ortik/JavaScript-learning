@@ -6,37 +6,46 @@
     <title> F1 Dashboard </title>
 </head>
 <body>
-    <div class="header">
-        <button id="hamburgerButton"> ☰ </button>
+    <header class="header">
+        <button id="hamburgerButton" class="hamburger"> ☰ </button>
         <h1>F1 Dashboard</h1>
-    </div>
+    </header>
 
-    <div id="sidenav" class="sidenav" style="display: none">
-        <overlay id="overlay"> </overlay>
+    <div class="overlay" id="overlay"></div>
+
+    <div id="sidenav" class="sidenav">
+        <button id="sidenavCloseButton" class="sidenavCloseButton"> × </button>
         <div class="sidenavContent">
-            <ul>
-                <li> Drivers Standings</li>
-                <li> Teams Standings</li>
-                <li> Schedule </li>
-                <li> Results </li>
+            <ul class="sidenavList">
+                <li><button class="sidenavListItem" data-section="driversStandings"> 🏆 Drivers Standings </button></li>
+                <li><button class="sidenavListItem" data-section="teamsStandings"> 🏢 Teams Standings </button></li>
+                <li><button class="sidenavListItem" data-section="schedule"> 📅 Schedule </button></li>
+                <li><button class="sidenavListItem" data-section="results"> 🏁 Results </button></li>
             </ul>
         </div>
-        <button id="sidenavCloseButton"> × </button>
+
     </div>
 
-    <div id="mainContent">
-        <section id="driversStandings">
-
+    <main id="mainContent">
+        <section id="driversStandings" class="contentSection">
+            <h2> Drivers Standings </h2>
+            <div id="driversData"></div>
         </section>
-        <section id="teamsStandings" style="display: none">
 
+        <section id="teamsStandings" class="contentSection" style="display: none">
+            <h2> Teams Standings </h2>
+            <div id="teamsData"></div>
         </section>
-        <section id="schedule" style="display: none">
 
+        <section id="schedule" class="contentSection" style="display: none">
+            <h2> Schedule </h2>
+            <div id="scheduleData"></div>
         </section>
-        <section id="results" style="display: none">
 
+        <section id="results" class="contentSection" style="display: none">
+            <h2> Results </h2>
+            <div id="resultsData"></div>
         </section>
-    </div>
+    </main>
 </body>
 </html>
