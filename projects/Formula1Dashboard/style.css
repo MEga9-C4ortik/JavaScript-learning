@@ -19,6 +19,7 @@ body {
     background-color: #15151E;
     display: flex;
     align-items: center;
+    text-align: right;
     padding: 0 20px;
     z-index: 99;
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
@@ -35,6 +36,126 @@ body {
 }
 
 .header h1 {
+    align-items: end;
     font-size: 30px;
     font-weight: bold;
+}
+
+#mainContent {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    min-height: calc(100vh - 60px);
+}
+
+#content h2 {
+    color: #E10600;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    z-index: 98;
+}
+
+.overlay.active {
+    display: block;
+}
+
+.sidenav {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100%;
+    background-color: #1A1A1A;
+    z-index: 99;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+}
+
+.sidenav.open {
+    left: 0;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 36px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.menu-list {
+    list-style: none;
+    margin-top: 60px;
+    padding: 0;
+}
+
+.menu-list li {
+    border-bottom: 1px solid #2A2A2A;
+}
+
+.menu-item {
+    width: 100%;
+    text-align: left;
+    padding: 20px 25px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.menu-item:hover {
+    background-color: #2A2A2A;
+}
+
+.menu-item:active {
+    background-color: #E10600;
+}
+
+@media (min-width: 768px) {
+    .sidenav {
+        width: 350px;
+        left: -350px;
+    }
+
+    .menu-item {
+        font-size: 20px;
+        padding: 25px 30px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .sidenav {
+        left: 0;
+        position: fixed;
+    }
+
+    #mainContent {
+        margin-left: 280px;
+        max-width: 1200px;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    .overlay {
+        display: none !important;
+    }
 }
