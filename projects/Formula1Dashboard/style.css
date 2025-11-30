@@ -46,14 +46,6 @@ body {
     transform: rotate(90deg);
 }
 
-.f1-logo {
-    display: none;
-    position: absolute;
-    left: 20px;
-    height: 40px;
-    width: auto;
-}
-
 #mainContent {
     text-align: center;
     margin-top: 60px;
@@ -141,10 +133,6 @@ body {
     display: none;
 }
 
-.contentSection {
-    display: none;
-}
-
 @media (min-width: 768px) {
     .sidenav {
         width: 300px;
@@ -159,28 +147,26 @@ body {
 
 @media (min-width: 1024px) {
     .header {
-        left: 250px;
-        width: calc(100% - 250px);
+        left: 0;
+        width: 100%;
     }
 
     .hamburger {
         display: none;
     }
 
-    .f1-logo {
-        display: block;
-        left: auto;
-    }
-
     .sidenav {
-        width: 250px;
-        left: 0;
         position: fixed;
+        left: 0;
+        top: 60px;
+        width: 250px;
+        height: calc(100% - 60px);
     }
 
     #mainContent {
         margin-left: 250px;
         margin-right: 280px;
+        margin-top: 80px;
         max-width: none;
     }
 
