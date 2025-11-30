@@ -8,6 +8,7 @@
     <title> F1 Dashboard </title>
 </head>
 
+<body>
 <aside class="rightSidebar">
     <h3>Quick Stats</h3>
     <div class="stat-card">
@@ -29,50 +30,49 @@
     </div>
 </aside>
 
-<body>
-    <header class="header">
-        <button id="hamburgerButton" class="hamburger"> ☰ </button>
-        <h1>F1 Dashboard</h1>
-    </header>
+<header class="header">
+    <button id="hamburgerButton" class="hamburger"> ☰ </button>
+    <h1>F1 Dashboard</h1>
+</header>
 
-    <div class="overlay" id="overlay"></div>
+<div class="overlay" id="overlay"></div>
 
-    <div id="sidenav" class="sidenav">
-        <div class="sidenavContent">
-            <ul class="sidenavList" id="sidenavList">
-                <li><button class="sidenavListItem" data-section="driversStandings"> Drivers Standings </button></li>
-                <li><button class="sidenavListItem" data-section="teamsStandings"> Teams Standings </button></li>
-                <li><button class="sidenavListItem" data-section="schedule"> Schedule </button></li>
-                <li><button class="sidenavListItem" data-section="results"> Results </button></li>
-            </ul>
-        </div>
-
+<div id="sidenav" class="sidenav">
+    <div class="sidenavContent">
+        <ul class="sidenavList" id="sidenavList">
+            <li><button class="sidenavListItem" data-section="driversStandings"> Drivers Standings </button></li>
+            <li><button class="sidenavListItem" data-section="teamsStandings"> Teams Standings </button></li>
+            <li><button class="sidenavListItem" data-section="schedule"> Schedule </button></li>
+            <li><button class="sidenavListItem" data-section="results"> Results </button></li>
+        </ul>
     </div>
 
-    <main id="mainContent" class="mainContent">
-        <section id="driversStandings" class="contentSection">
-            <h2> Drivers Standings </h2>
-            <hr>
-            <div id="driversData"></div>
-        </section>
+</div>
 
-        <section id="teamsStandings" class="contentSection" style="display: none">
-            <h2> Teams Standings </h2>
-            <hr>
-            <div id="teamsData"></div>
-        </section>
+<main id="mainContent">
+    <section id="driversStandings" class="contentSection">
+        <h2> Drivers Standings </h2>
+        <hr>
+        <div id="driversData"></div>
+    </section>
 
-        <section id="schedule" class="contentSection" style="display: none">
-            <h2> Schedule </h2>
-            <hr>
-            <div id="scheduleData"></div>
-        </section>
+    <section id="teamsStandings" class="contentSection" style="display: none">
+        <h2> Teams Standings </h2>
+        <hr>
+        <div id="teamsData"></div>
+    </section>
 
-        <section id="results" class="contentSection" style="display: none">
-            <h2> Results </h2>
-            <hr>
-            <div id="resultsData"></div>
-        </section>
-    </main>
+    <section id="schedule" class="contentSection" style="display: none">
+        <h2> Schedule </h2>
+        <hr>
+        <div id="scheduleData"></div>
+    </section>
+
+    <section id="results" class="contentSection" style="display: none">
+        <h2> Results </h2>
+        <hr>
+        <div id="resultsData"></div>
+    </section>
+</main>
 </body>
 </html>

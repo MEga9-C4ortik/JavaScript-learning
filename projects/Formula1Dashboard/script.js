@@ -1,8 +1,8 @@
 const sidenav = document.getElementById('sidenav');
 const hamburger = document.getElementById('hamburgerButton');
 const overlay = document.getElementById('overlay');
-const sidenavItem = document.querySelector('.sidenavItem');
-const content = document.querySelector('.mainContent');
+const sidenavItems = document.querySelectorAll('.sidenavListItem');
+const content = document.querySelectorAll('.contentSection');
 
 function toggleSidenav() {
     sidenav.classList.toggle('open');
@@ -13,18 +13,18 @@ function toggleSidenav() {
 function showSection(sectionId) {
     // Hide all sections
     content.forEach(section => {
-        section.classList.remove('active');
+        section.style.display = 'none';
     });
 
     // Remove active class from all buttons
-    sidenavItem.forEach(button => {
+    sidenavItems.forEach(button => {
         button.classList.remove('active');
     });
 
     // Show selected section
     const selectedSection = document.getElementById(sectionId);
     if (selectedSection) {
-        selectedSection.classList.add('active');
+        selectedSection.style.display = 'block';
     }
 
     // Add active class to clicked button
@@ -39,16 +39,12 @@ function showSection(sectionId) {
     }
 }
 
-// Event listeners
 hamburger.addEventListener('click', toggleSidenav);
 overlay.addEventListener('click', toggleSidenav);
 
-sidenavItem.forEach(button => {
+sidenavItems.forEach(button => {
     button.addEventListener('click', function() {
         const sectionId = this.getAttribute('data-section');
         showSection(sectionId);
     });
 });
-
-hamburger.addEventListener('click', toggleSidenav);
-overlay.addEventListener('click', toggleSidenav);

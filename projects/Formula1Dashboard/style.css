@@ -145,10 +145,6 @@ body {
     display: none;
 }
 
-.contentSection.active {
-    display: block;
-}
-
 @media (min-width: 768px) {
     .sidenav {
         width: 300px;
@@ -164,7 +160,7 @@ body {
 @media (min-width: 1024px) {
     .header {
         left: 250px;
-        width: calc(100% - 250px - 280px);
+        width: calc(100% - 250px);
     }
 
     .hamburger {
@@ -173,6 +169,7 @@ body {
 
     .f1-logo {
         display: block;
+        left: auto;
     }
 
     .sidenav {
@@ -190,8 +187,8 @@ body {
     .rightSidebar {
         display: block;
         position: fixed;
-        right: 0;
         top: 60px;
+        right: 0;
         width: 280px;
         height: calc(100% - 60px);
         background-color: #1A1A1A;
