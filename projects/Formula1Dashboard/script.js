@@ -4,6 +4,16 @@ const overlay = document.getElementById('overlay');
 const sidenavItems = document.querySelectorAll('.sidenavListItem');
 const content = document.querySelectorAll('.contentSection');
 
+async function fetchData(endpoint) {
+    try{
+        const url = "https://api.openf1.org/v1/" + endpoint;
+        return await (await fetch(url)).json();
+    }catch(error){
+        console.error("Error: " + error);
+        return null;
+    }
+}
+
 function toggleSidenav() {
     sidenav.classList.toggle('open');
     overlay.classList.toggle('active');
