@@ -42,15 +42,14 @@
         <ul class="sidenavList" id="sidenavList">
             <li><button class="sidenavListItem" data-section="driversStandings"> Drivers Standings </button></li>
             <li><button class="sidenavListItem" data-section="teamsStandings"> Teams Standings </button></li>
-            <li><button class="sidenavListItem" data-section="schedule"> Schedule </button></li>
-            <li><button class="sidenavListItem" data-section="results"> Results </button></li>
+            <li><button class="sidenavListItem" data-section="calendar"> Calendar </button></li>
         </ul>
     </div>
 
 </div>
 
 <main id="mainContent">
-    <section id="driversStandings" class="contentSection">
+    <section id="driversStandings" class="contentSection" style="display: none">
         <h2> Drivers Standings </h2>
         <hr>
         <div id="driversData"></div>
@@ -62,16 +61,10 @@
         <div id="teamsData"></div>
     </section>
 
-    <section id="schedule" class="contentSection" style="display: none">
-        <h2> Schedule </h2>
+    <section id="calendar" class="contentSection">
+        <h2> Calendar </h2>
         <hr>
-        <div id="scheduleData"></div>
-    </section>
-
-    <section id="results" class="contentSection" style="display: none">
-        <h2> Results </h2>
-        <hr>
-        <div id="resultsData"></div>
+        <div id="calendarData"></div>
     </section>
 </main>
 </body>

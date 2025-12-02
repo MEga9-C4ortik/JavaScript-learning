@@ -48,3 +48,5 @@ sidenavItems.forEach(button => {
         showSection(sectionId);
     });
 });
+
+showSection("calendar");
