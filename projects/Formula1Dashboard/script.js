@@ -21,10 +21,15 @@ async function loadCalendar(){
     const races = await fetchOpenF1("sessions?year="+new Date()+ "&session_name=Race");
 
     const calendarData = meetings.map((meeting) => {
-        const raceSession = races.find(r => r.meetingKey === meeting.id);
+        const raceSession = races.find(r => r.meeting_key === meeting.meeting_key)
+        return {
+            meeting: meeting,
+            session: raceSession
+        }
     });
 
-    renderCalendar(calendarData)
+    calendarData.sort((a, b) => new Date(a.meeting.date_start) - new Date(b.meeting.date_start));
+    renderCalendar(calendarData);
 }
 
 function renderCalendar(data){
@@ -36,14 +41,58 @@ function renderCalendar(data){
         return;
     }
 
-    data.forEach(element => {
-        const card = document.createElement('div');
-        card.className = 'race-card';
+    data.forEach(race => {
+        const card = document.createElement('div')
+        card.className = 'race-card'
 
-        const name = element.meeting.meeting_name;
-        const location = element.meeting.location;
-        const country = element.meeting.country_name;
-        const date = new Date(element.meeting.date_start);
+        const name = race.meeting.meeting_name;
+        const location = race.meeting.location;
+        const country = race.meeting.country_name;
+        const date = new Date(race.meeting.date_start);
+
+        const dateStr = date.toLocaleDateString('en-GB', {
+            month: 'short',
+            day: 'numeric'
+        });
+
+        const countryFlags = {
+            'Bahrain': '🇧🇭',
+            'Saudi Arabia': '🇸🇦',
+            'Australia': '🇦🇺',
+            'Japan': '🇯🇵',
+            'China': '🇨🇳',
+            'United States': '🇺🇸',
+            'Italy': '🇮🇹',
+            'Monaco': '🇲🇨',
+            'Canada': '🇨🇦',
+            'Spain': '🇪🇸',
+            'Austria': '🇦🇹',
+            'United Kingdom': '🇬🇧',
+            'Hungary': '🇭🇺',
+            'Belgium': '🇧🇪',
+            'Netherlands': '🇳🇱',
+            'Azerbaijan': '🇦🇿',
+            'Singapore': '🇸🇬',
+            'Mexico': '🇲🇽',
+            'Brazil': '🇧🇷',
+            'Qatar': '🇶🇦',
+            'UAE': '🇦🇪',
+        }
+        const flag = countryFlags[country] || '🏁';
+
+        card.innerHTML = `
+        <div class="race-header">
+            <h3>${name}</h3>
+        </div>
+        <div class="race-info">
+            <p class="race-location"> ${flag} ${country}, ${location}</p>
+            <p class="race-date"> ${dateStr}</p>
+        </div>
+        <div class="race-winner">
+            <p class="winner-label"> Winner:</p>
+            <p class="winner-name">TBD</p>
+        </div>
+        `
 
         container.appendChild(card);
     });
