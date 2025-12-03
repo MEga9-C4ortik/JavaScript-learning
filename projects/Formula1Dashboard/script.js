@@ -4,14 +4,49 @@ const overlay = document.getElementById('overlay');
 const sidenavItems = document.querySelectorAll('.sidenavListItem');
 const content = document.querySelectorAll('.contentSection');
 
-async function fetchData(endpoint) {
+async function fetchOpenF1(endpoint) {
     try{
         const url = "https://api.openf1.org/v1/" + endpoint;
-        return await (await fetch(url)).json();
+        const response = await fetch(url)
+        const data = await response.json()
+        return data;
     }catch(error){
         console.error("Error: " + error);
         return null;
     }
+}
+
+async function loadCalendar(){
+    const meetings = await fetchOpenF1("meetings?year="+new Date());
+    const races = await fetchOpenF1("sessions?year="+new Date()+ "&session_name=Race");
+
+    const calendarData = meetings.map((meeting) => {
+        const raceSession = races.find(r => r.meetingKey === meeting.id);
+    });
+
+    renderCalendar(calendarData)
+}
+
+function renderCalendar(data){
+    const container = document.getElementById('calendar');
+    container.innerHTML = '';
+
+    if(!data || data.length === 0){
+        container.innerHTML = '<p>No races found</p>';
+        return;
+    }
+
+    data.forEach(element => {
+        const card = document.createElement('div');
+        card.className = 'race-card';
+
+        const name = element.meeting.meeting_name;
+        const location = element.meeting.location;
+        const country = element.meeting.country_name;
+        const date = new Date(element.meeting.date_start);
+
+        container.appendChild(card);
+    });
 }
 
 function toggleSidenav() {
@@ -58,5 +93,5 @@ sidenavItems.forEach(button => {
         showSection(sectionId);
     });
 });
-
+loadCalendar();
 showSection("calendar");
