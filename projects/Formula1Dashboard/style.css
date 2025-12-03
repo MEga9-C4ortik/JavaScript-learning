@@ -68,6 +68,79 @@ body {
     max-width: 1200px;
 }
 
+#calendarData {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px 0;
+    scroll-behavior: smooth;
+}
+
+#calendarData::-webkit-scrollbar {
+    height: 8px;
+}
+
+#calendarData::-webkit-scrollbar-track {
+    background: #2A2A2A;
+    border-radius: 10px;
+}
+
+#calendarData::-webkit-scrollbar-thumb {
+    background: #E10600;
+    border-radius: 10px;
+}
+
+.race-card {
+    min-width: 280px;
+    max-width: 280px;
+    background-color: #1A1A1A;
+    border-radius: 12px;
+    padding: 20px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.race-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(225, 6, 0, 0.4);
+}
+
+.race-header h3 {
+    color: #E10600;
+    font-size: 18px;
+    margin: 0 0 15px 0;
+}
+
+.race-info {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #2A2A2A;
+}
+
+.race-location,
+.race-date {
+    color: #AAA;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.race-winner {
+    margin-top: 15px;
+}
+
+.winner-label {
+    color: #AAA;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.winner-name {
+    color: #FFF;
+    font-size: 16px;
+    font-weight: bold;
+}
+
 .overlay {
     position: fixed;
     top: 0;

@@ -64,7 +64,50 @@
     <section id="calendar" class="contentSection">
         <h2> Calendar </h2>
         <hr>
-        <div id="calendarData"></div>
+        <div id="calendarData" class="calendarData">
+            <div class="race-card">
+                <div class="race-card-header">
+                    <h2 class="track-name">SPIELBERG</h2>
+                    <div class="track-details">
+                        <p>🇦🇹 Austria • Red Bull Ring</p>
+                        <p>Spielberg, Styria</p>
+                    </div>
+                </div>
+
+                <div class="session-tabs">
+                    <button class="session-tab active" data-session="race">Race</button>
+                    <button class="session-tab" data-session="qualifying">Qualifying</button>
+                    <button class="session-tab" data-session="sprint">Sprint</button>
+                    <button class="session-tab" data-session="fp3">FP3</button>
+                    <button class="session-tab" data-session="fp2">FP2</button>
+                    <button class="session-tab" data-session="fp1">FP1</button>
+                </div>
+
+                <div class="session-content">
+                    <div class="session-schedule">
+                        <p class="session-time"> Race - Monday, Jun 30 </p>
+                        <p class="session-local-time"> 15:00 local time (14:00 GMT)</p>
+                    </div>
+
+                    <div class="session-results" style="display: none">
+                        <h3>🏁 Race Results:</h3>
+                        <div class="results-list">
+                            <div class="result-item">
+                                <span class="position">1</span>
+                                <span class="driver-name">M. Verstappen</span>
+                                <span class="team">Red Bull Racing</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="position">2</span>
+                                <span class="driver-name">L. Norris</span>
+                                <span class="team">McLaren</span>
+                            </div>
+                            <!-- ... еще результаты ... -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 </main>
 </body>

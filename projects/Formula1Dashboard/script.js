@@ -29,10 +29,10 @@ async function loadCalendar(){
     });
 
     calendarData.sort((a, b) => new Date(a.meeting.date_start) - new Date(b.meeting.date_start));
-    renderCalendar(calendarData);
+    renderCalendar(calendarData).then();
 }
 
-function renderCalendar(data){
+async function renderCalendar(data){
     const container = document.getElementById('calendar');
     container.innerHTML = '';
 
@@ -98,6 +98,22 @@ function renderCalendar(data){
     });
 }
 
+function loadDriversStandings(){
+
+}
+
+function renderDriversStandings(){
+
+}
+
+function loadTeamsStandings(){
+
+}
+
+function renderTeamsStandings(){
+
+}
+
 function toggleSidenav() {
     sidenav.classList.toggle('open');
     overlay.classList.toggle('active');
@@ -105,6 +121,13 @@ function toggleSidenav() {
 }
 
 function showSection(sectionId) {
+    if (sectionId === 'calendar') {
+        loadCalendar();
+    } else if (sectionId === 'driversStandings') {
+        loadDriversStandings() ;
+    } else if (sectionId === 'teamsStandings') {
+        loadTeamsStandings();
+    }
     // Hide all sections
     content.forEach(section => {
         section.style.display = 'none';
@@ -142,5 +165,5 @@ sidenavItems.forEach(button => {
         showSection(sectionId);
     });
 });
-loadCalendar();
+loadCalendar().then();
 showSection("calendar");
