@@ -1,19 +1,14 @@
 const title = document.getElementById("title");
 const input = document.getElementById("input"); // input field
 const buttonAddTask = document.getElementById("buttonAdd"); //add task button
-const list = document.getElementById("list"); // main list for task
+const list = document.getElementById("list"); // list for task
 const buttonClearCompleted = document.getElementById("clearCompleted");
 
-buttonAddTask.addEventListener("click", addTask); // button add task
-input.addEventListener("keypress", (e) => keyboardPress(e)) //enter add task
-input.focus(); //return cursor on the input field
-buttonClearCompleted.addEventListener("click", () => clearCompleted());
-
 function addTask(){
-    const text = input.value.trim(); //name of the task
+    const text = input.value.trim(); //task text, trim() for removing spaces
     const span = document.createElement("span"); //span for data storing
 
-    if(text === ""){ //check for null string
+    if(text === ""){ //check for only spaces string
         input.value = "";
         return;
     }
@@ -33,8 +28,8 @@ function addTask(){
     editButton.textContent = "✎";
     editButton.classList.add("editButton");
     editButton.addEventListener("click", (e) => {
-       e.stopPropagation();
-       editTask(li, span);
+        e.stopPropagation();
+        editTask(li, span);
     });
 
     const deleteButton = document.createElement("button"); //delete button
@@ -111,9 +106,9 @@ function editTask(li, spanElement){
     }
 
     editInput.addEventListener("keydown", (e) => {
-       if (e.key === "Enter"){
-           saveEdit();
-       } else if (e.key === "Escape"){
+        if (e.key === "Enter"){
+            saveEdit();
+        } else if (e.key === "Escape"){
             isCanceled = true;
             li.replaceChild(spanElement, editInput);
             input.focus();
@@ -151,3 +146,8 @@ function updateCounter() {
         counter.textContent = `${remaining} tasks remaining`;
     }
 }
+
+buttonAddTask.addEventListener("click", addTask); // button add task
+buttonClearCompleted.addEventListener("click", () => clearCompleted());
+input.addEventListener("keypress", (e) => keyboardPress(e)) //enter add task
+input.focus(); //return cursor on the input field

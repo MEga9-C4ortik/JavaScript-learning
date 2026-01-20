@@ -1,3 +1,4 @@
-for(let i = 0; i < 10;++i){
-    console.log(i);
-}
+let num = 0;
+
+console.log("??: " + (1 ?? "Not defined"));
+console.log("||: " + (num || "Not defined"));
