@@ -5,16 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/3/33/F1.svg" type="image/svg+xml">
-    <title> Mega F1 Dashboard </title>
+    <title>Mega F1 Dashboard</title>
 </head>
 
 <body>
+<!-- Header -->
 <header id="header">
-    <h1> Mega F1 Dashboard </h1>
+    <h1>Mega F1 Dashboard</h1>
+    <p class="season">Season 2026</p>
 </header>
 
+<!-- Main Navigation -->
+<nav class="navbar">
+    <button class="nav-tab active" id="standings-tab" data-tab="standings">
+        Standings
+    </button>
+    <button class="nav-tab" id="calendar-tab" data-tab="calendar">
+        Calendar
+    </button>
+</nav>
 
-</body>
+<!-- Main Content -->
+<main>
+    <!-- Standings Section -->
+    <section class="tab-content active" id="standings">
+        <!-- Sub-navigation for Drivers/Teams -->
+        <div class="standings-tabs">
+            <button class="standings-tab active" id="drivers-tab" data-type="drivers">
+                Drivers
+            </button>
+            <button class="standings-tab" id="teams-tab" data-type="teams">
+                Teams
+            </button>
+        </div>
 
+        <!-- Drivers Standings Container -->
+        <div class="standings-content active" id="drivers-standings">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>Loading drivers standings...</p>
+            </div>
+        </div>
+
+        <!-- Teams Standings Container -->
+        <div class="standings-content" id="teams-standings">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>Loading teams standings...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendar Section -->
+    <section class="tab-content" id="calendar">
+        <div id="calendar-content">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>Loading race calendar...</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Race Details Modal (initially hidden) -->
+<div id="race-modal" class="modal" style="display: none;">
+    <div class="modal-overlay" onclick="closeModal()"></div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="modal-race-name">Race Name</h2>
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="session-tabs">
+                <button class="session-tab active" data-session="race">
+                    Race
+                </button>
+                <button class="session-tab" data-session="qualifying">
+                    Qualifying
+                </button>
+                <button class="session-tab" data-session="sprint">
+                    Sprint
+                </button>
+            </div>
+            <div id="session-results">
+                <!-- Results will be loaded here -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="api.js"></script>
+<script src="ui.js"></script>
 <script src="script.js"></script>
+</body>
 </html>
