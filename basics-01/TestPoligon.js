@@ -1,4 +1,11 @@
-let num = 0;
+let cat = {
+    12: "Javascript",
+    16: "re",
+    32: "React",
+    64: "act",
+}
+console.log(cat);
 
-console.log("??: " + (1 ?? "Not defined"));
-console.log("||: " + (num || "Not defined"));
+cat['16'] = "React";
+
+console.log(cat);
