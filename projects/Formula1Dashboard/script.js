@@ -3,8 +3,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 async function loadStandings(type) {
-    const container = document.getElementById('standings-container');
-
     if (type === "drivers") {
         const data = await getDriversStandings();
         displayDriversStandings(data);
@@ -23,7 +21,6 @@ document.addEventListener("click", (event) => {
     document.querySelectorAll('.standings-tab').forEach(tab => {
         tab.classList.remove('active');
     });
-
     btn.classList.add('active');
 
     const type = btn.dataset.type;
