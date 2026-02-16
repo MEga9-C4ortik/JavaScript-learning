@@ -64,8 +64,7 @@ main {
 .nav-tab.active {
     background: #15151E;
     color: #E10600;
-    border-bottom: 1px solid #000000;
-    transform: scale(0.85);
+    border: 2px solid #E15151;
 }
 
 .tab-content {
@@ -95,13 +94,15 @@ main {
 }
 
 .standings-tab:hover {
-    background: #949498;
+    background: #2a2a3a;
+    color: #E10600;
+    border: 2px solid #E10600;
     transform: translateY(-2px);
 }
 
 .standings-tab.active {
     background: #ececec;
-    color: #15151E;
+    color: #E10600;
     border-color: #E10600;
 }
 
@@ -142,12 +143,9 @@ td {
     border-bottom: 1px solid #949498;
 }
 
-tbody tr {
-    transition: background 0.3s;
-}
-
-tbody tr:hover {
-    background: #f8f9fa;
+tbody {
+    background: #15151E;
+    color: #edede9;
 }
 
 tbody tr:last-child td {
@@ -157,16 +155,16 @@ tbody tr:last-child td {
 .position {
     font-weight: 700;
     font-size: 1.2em;
-    color: #E10600;
+    color: #edede9;
 }
 
 .driver-name {
     font-weight: 600;
-    color: #15151E;
+    color: #edede9;
 }
 
 .team-name {
-    color: #949498;
+    color: #edede9;
     font-size: 0.95em;
 }
 
