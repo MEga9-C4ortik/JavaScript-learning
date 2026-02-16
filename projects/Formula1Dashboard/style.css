@@ -26,11 +26,15 @@ main {
 #header h1 {
     margin: 25px;
     font-size: 40px;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 .season {
     font-size: 1.2em;
     opacity: 0.9;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 .navbar {
@@ -58,9 +62,10 @@ main {
 }
 
 .nav-tab.active {
-    background: white;
+    background: #15151E;
     color: #E10600;
     border-bottom: 1px solid #000000;
+    transform: scale(0.85);
 }
 
 .tab-content {
@@ -79,24 +84,24 @@ main {
 
 .standings-tab {
     padding: 10px 20px;
-    background: #f8f9fa;
-    border: 2px solid #e9ecef;
+    background: #15151E;
+    border: 2px solid #E10600;
     border-radius: 8px;
     font-size: 1em;
     font-weight: 600;
-    color: #15151E;
+    color: #E10600;
     cursor: pointer;
     transition: all 0.3s;
 }
 
 .standings-tab:hover {
-    background: #e9ecef;
+    background: #949498;
     transform: translateY(-2px);
 }
 
 .standings-tab.active {
-    background: #E10600;
-    color: white;
+    background: #ececec;
+    color: #15151E;
     border-color: #E10600;
 }
 
@@ -111,7 +116,7 @@ main {
 table {
     width: 100%;
     border-collapse: collapse;
-    background: white;
+    background: #15151E;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     border-radius: 10px;
     overflow: hidden;
@@ -119,8 +124,8 @@ table {
 }
 
 thead {
-    background: #E10600;
-    color: white;
+    background: #15151E;
+    color: #E10600;
 }
 
 th {
@@ -134,7 +139,7 @@ th {
 td {
     padding: 15px;
     text-align: left;
-    border-bottom: 1px solid #e9ecef;
+    border-bottom: 1px solid #949498;
 }
 
 tbody tr {
@@ -196,7 +201,7 @@ tbody tr:last-child td {
 }
 
 .race-card {
-    background: white;
+    background: #15151E;
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -235,35 +240,35 @@ tbody tr:last-child td {
 }
 
 .status-badge.completed {
-    background: #d4edda;
-    color: #155724;
+    background: #155724;
+    color: #d4edda;
 }
 
 .status-badge.scheduled {
-    background: #fff3cd;
-    color: #856404;
+    background: #856404;
+    color: #fff3cd;
 }
 
 .race-name {
     font-size: 1.3em;
     margin-bottom: 8px;
-    color: #15151E;
+    color: #ffffff;
 }
 
 .circuit-name {
-    color: #949498;
+    color: #ffffff;
     font-size: 0.95em;
     margin: 5px 0;
 }
 
 .location {
-    color: #949498;
+    color: #ffffff;
     font-size: 0.9em;
     margin: 5px 0;
 }
 
 .date {
-    color: #15151E;
+    color: #949498;
     font-weight: 600;
     margin: 10px 0;
 }
@@ -273,7 +278,7 @@ tbody tr:last-child td {
     padding: 10px;
     margin-top: 15px;
     background: #E10600;
-    color: white;
+    color: #ffffff;
     border: none;
     border-radius: 8px;
     font-weight: 600;
@@ -284,10 +289,6 @@ tbody tr:last-child td {
 .view-results-btn:hover {
     background: #b00500;
 }
-
-/* ===========================
-   MODAL
-   =========================== */
 
 .modal {
     position: fixed;
@@ -338,7 +339,7 @@ tbody tr:last-child td {
 .close-btn {
     background: none;
     border: none;
-    color: white;
+    color: #E10600;
     font-size: 30px;
     cursor: pointer;
     line-height: 1;
@@ -359,7 +360,7 @@ tbody tr:last-child td {
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
-    border-bottom: 2px solid #e9ecef;
+    border-bottom: 2px solid #949498;
     padding-bottom: 10px;
 }
 

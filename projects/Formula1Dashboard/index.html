@@ -9,13 +9,12 @@
 </head>
 
 <body>
-<!-- Header -->
+
 <header id="header">
     <h1>Mega F1 Dashboard</h1>
     <p class="season">Season 2026</p>
 </header>
 
-<!-- Main Navigation -->
 <nav class="navbar">
     <button class="nav-tab active" id="standings-tab" data-tab="standings">
         Standings
@@ -25,11 +24,8 @@
     </button>
 </nav>
 
-<!-- Main Content -->
 <main>
-    <!-- Standings Section -->
     <section class="tab-content active" id="standings">
-        <!-- Sub-navigation for Drivers/Teams -->
         <div class="standings-tabs">
             <button class="standings-tab active" id="drivers-tab" data-type="drivers">
                 Drivers
@@ -39,7 +35,6 @@
             </button>
         </div>
 
-        <!-- Drivers Standings Container -->
         <div class="standings-content active" id="drivers-standings">
             <div class="loading">
                 <div class="spinner"></div>
@@ -47,7 +42,6 @@
             </div>
         </div>
 
-        <!-- Teams Standings Container -->
         <div class="standings-content" id="teams-standings">
             <div class="loading">
                 <div class="spinner"></div>
@@ -56,7 +50,6 @@
         </div>
     </section>
 
-    <!-- Calendar Section -->
     <section class="tab-content" id="calendar">
         <div id="calendar-content">
             <div class="loading">
@@ -67,7 +60,6 @@
     </section>
 </main>
 
-<!-- Race Details Modal (initially hidden) -->
 <div id="race-modal" class="modal" style="display: none;">
     <div class="modal-overlay" onclick="closeModal()"></div>
     <div class="modal-content">
@@ -88,13 +80,12 @@
                 </button>
             </div>
             <div id="session-results">
-                <!-- Results will be loaded here -->
+
             </div>
         </div>
     </div>
 </div>
 
-<!-- Scripts -->
 <script src="api.js"></script>
 <script src="ui.js"></script>
 <script src="script.js"></script>
