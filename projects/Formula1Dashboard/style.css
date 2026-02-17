@@ -507,3 +507,188 @@ tbody tr:last-child td {
     color: #949498;
     font-size: 1.1em;
 }
+
+/* ====== RESPONSIVE ====== */
+
+/* Tablet: 768px - 1024px */
+@media (max-width: 1024px) {
+    main {
+        padding: 20px;
+    }
+
+    #header h1 {
+        font-size: 30px;
+        margin: 15px;
+    }
+
+    .season-selector label,
+    .season-select {
+        font-size: 20px;
+    }
+
+    .nav-tab {
+        font-size: 20px;
+        padding: 12px 20px;
+    }
+
+    .races-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+}
+
+/* Mobile: до 768px */
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+    }
+
+    main {
+        border-radius: 0;
+        padding: 15px;
+    }
+
+    #header {
+        border-radius: 0;
+        margin: 0;
+        padding: 10px;
+    }
+
+    #header h1 {
+        font-size: 22px;
+        margin: 10px;
+    }
+
+    .season-selector {
+        margin: 8px 0 12px 0;
+        gap: 8px;
+    }
+
+    .season-selector label {
+        font-size: 16px;
+    }
+
+    .season-select {
+        font-size: 16px;
+        padding: 6px 10px;
+    }
+
+    .navbar {
+        margin: 0;
+    }
+
+    .nav-tab {
+        font-size: 16px;
+        padding: 12px 10px;
+    }
+
+    /* Standings tabs */
+    .standings-tabs {
+        gap: 8px;
+        margin: 15px 0;
+    }
+
+    .standings-tab {
+        flex: 1;
+        text-align: center;
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+
+    /* Table — скролл горизонтальный */
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    th, td {
+        padding: 10px;
+        font-size: 0.85em;
+    }
+
+    /* Calendar */
+    .races-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    /* Modal */
+    .modal-content {
+        width: 100%;
+        max-width: 100%;
+        max-height: 100vh;
+        border-radius: 15px 15px 0 0;
+        position: fixed;
+        bottom: 0;
+        margin: 0;
+    }
+
+    .modal {
+        align-items: flex-end;
+    }
+
+    .modal-header h2 {
+        font-size: 1.3em;
+    }
+
+    .modal-body {
+        padding: 15px;
+    }
+
+    /* Session tabs — скролл если не влезают */
+    .session-tabs {
+        overflow-x: auto;
+        gap: 5px;
+        padding-bottom: 8px;
+        /* убираем перенос строк */
+        flex-wrap: nowrap;
+    }
+
+    .session-tab {
+        padding: 8px 12px;
+        font-size: 0.85em;
+        white-space: nowrap;
+    }
+
+    /* Results table в модалке */
+    .results-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .results-table th,
+    .results-table td {
+        padding: 8px 10px;
+        font-size: 0.8em;
+    }
+}
+
+/* Small Mobile: до 480px */
+@media (max-width: 480px) {
+    #header h1 {
+        font-size: 18px;
+    }
+
+    .season-selector label {
+        display: none; /* убираем лейбл "Season:" на маленьких экранах */
+    }
+
+    .nav-tab {
+        font-size: 14px;
+        padding: 10px 5px;
+    }
+
+    .race-name {
+        font-size: 1.1em;
+    }
+
+    .round {
+        font-size: 0.8em;
+    }
+
+    .status-badge {
+        font-size: 0.75em;
+        padding: 4px 8px;
+    }
+}
