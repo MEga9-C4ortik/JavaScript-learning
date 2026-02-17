@@ -55,7 +55,7 @@ async function getRaceResults(season, round) {
         }
 
         const json = await response.json();
-        return json.MRData.RaceTable.Races[0];
+        return json.MRData.RaceTable.Races[0]?.Results ?? null;
     } catch(error) {
         console.log("Error: " + error);
         return null;
@@ -71,7 +71,7 @@ async function getQualifyingResults(season, round) {
         }
 
         const json = await response.json();
-        return json.MRData.RaceTable.Races[0];
+        return json.MRData.RaceTable.Races[0]?.QualifyingResults ?? null;
     } catch(error) {
         console.log("Error: " + error);
         return null;
@@ -87,8 +87,9 @@ async function getSprintResults(season, round) {
         }
 
         const json = await response.json();
-        return json.MRData.RaceTable.Races[0];
+        return json.MRData.RaceTable.Races[0]?.SprintResults ?? null;
     } catch(error) {
+        console.log("Error: " + error);
         return null;
     }
 }

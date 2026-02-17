@@ -1,4 +1,4 @@
-let season =2024;
+let season = new Date().getFullYear();
 
 document.addEventListener('DOMContentLoaded', async () => {
     seasonSelector();
@@ -11,18 +11,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     await loadStandings('drivers');
 });
 
-async function loadStandings(type) {
-    if (type === "drivers") {
-        const data = await getDriversStandings(season);
-        displayDriversStandings(data);
-    }
-
-    if(type === "teams"){
-        const data = await getTeamsStandings(season);
-        displayTeamsStandings(data);
-    }
-}
-
+//switch standings:Drivers/Teams
 document.addEventListener("click", (event) => {
     const btn = event.target.closest(".standings-tab");
     if(!btn) return;
@@ -38,6 +27,7 @@ document.addEventListener("click", (event) => {
     }
 });
 
+// switch Standings/Calendar
 document.addEventListener("click", (event) => {
     const tab = event.target.closest(".nav-tab");
     if(!tab) return;
@@ -55,8 +45,42 @@ document.addEventListener("click", (event) => {
     const content = document.getElementById(tabName);
     if(content) {
         content.classList.add('active');
+
+        if(tabName === "calendar") {
+            loadCalendar();
+        }
     }
 });
+
+document.addEventListener("click", (event) => {
+    const sessionTab = event.target.closest(".session-tab");
+    if(!sessionTab) return;
+
+    document.querySelectorAll('.session-tab').forEach(tab => {
+        tab.classList.remove('active');
+    });
+
+    sessionTab.classList.add('active');
+
+    const session = sessionTab.dataset.session;
+    const round = sessionTab.closest('.modal-content').dataset.round;
+
+    if(round && session) {
+        loadSessionResults(round, session);
+    }
+});
+
+async function loadStandings(type) {
+    if (type === "drivers") {
+        const data = await getDriversStandings(season);
+        displayDriversStandings(data);
+    }
+
+    if(type === "teams"){
+        const data = await getTeamsStandings(season);
+        displayTeamsStandings(data);
+    }
+}
 
 function seasonSelector() {
     const select = document.getElementById('season-select');
@@ -77,9 +101,8 @@ function seasonSelector() {
 }
 
 function onSeasonChange(newSeason) {
-    season = parseInt(newSeason); // Обновляем глобальную переменную
+    season = parseInt(newSeason);
 
-    // Определяем какой таб сейчас активен
     const activeNavTab = document.querySelector('.nav-tab.active');
     if(!activeNavTab) return;
 
@@ -91,5 +114,32 @@ function onSeasonChange(newSeason) {
         loadStandings(type);
     } else if(tabName === 'calendar') {
         loadCalendar();
+    }
+}
+
+async function loadCalendar() {
+    const container = document.getElementById('calendar-content');
+
+    container.innerHTML = `
+        <div class="loading">
+            <div class="spinner"></div>
+            <p>Loading race calendar...</p>
+        </div>
+    `;
+
+    const races = await getRaceCalendar(season);
+    displayRaceCalendar(races);
+}
+
+async function loadSessionResults(round, session) {
+    if(session === 'race') {
+        const data = await getRaceResults(season, round);
+        displayRaceResults(data);
+    } else if(session === 'qualifying') {
+        const data = await getQualifyingResults(season, round);
+        displayQualifyingResults(data);
+    } else if(session === 'sprint') {
+        const data = await getSprintResults(season, round);
+        displaySprintResults(data);
     }
 }
