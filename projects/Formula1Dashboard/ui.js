@@ -22,11 +22,12 @@ function displayDriversStandings(drivers){
         const position = driver.position;
         const name = driver.Driver.givenName + ' ' + driver.Driver.familyName;
         const points = driver.points;
+        const team = driver.Constructors[0].name;
 
         html += `
             <tr>
                 <td class="position">${position}</td>
-                <td class="driver-name">${name}</td>
+                <td class="driver-name">${name} (${team}) </td>
                 <td class="points">${points}</td>
             </tr>
         `;
