@@ -1,15 +1,17 @@
+let season = 2026;
+
 document.addEventListener('DOMContentLoaded', async () => {
     await loadStandings('drivers');
 });
 
 async function loadStandings(type) {
     if (type === "drivers") {
-        const data = await getDriversStandings();
+        const data = await getDriversStandings(season);
         displayDriversStandings(data);
     }
 
     if(type === "teams"){
-        const data = await getTeamsStandings();
+        const data = await getTeamsStandings(season);
         displayTeamsStandings(data);
     }
 }
@@ -48,3 +50,21 @@ document.addEventListener("click", (event) => {
         content.classList.add('active');
     }
 });
+
+function populateSeasonSelector() {
+    const select = document.getElementById('season-select');
+    const currentYear = new Date().getFullYear();
+    const startYear = 1950;
+
+    for(let year = currentYear; year >= startYear; year--) {
+        const option = document.createElement('option');
+        option.value = year;
+        option.textContent = year;
+
+        if(year === season) {
+            option.selected = true;
+        }
+
+        select.appendChild(option);
+    }
+}

@@ -30,11 +30,48 @@ main {
     font-weight: bold;
 }
 
-.season {
-    font-size: 1.2em;
-    opacity: 0.9;
+.season-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+    justify-content: center;
+}
+
+.season-selector label {
+    font-size: 26px;
+    font-weight: 600;
+    color: #ffffff;
     text-transform: uppercase;
-    font-weight: bold;
+}
+
+.season-select {
+    padding: 8px 15px;
+    font-size: 26px;
+    font-weight: 600;
+    background: #15151E;
+    color: #E10600;
+    border: 2px solid #E10600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    outline: none;
+}
+
+.season-select:hover {
+    background: #2a2a3a;
+    transform: translateY(-2px);
+}
+
+.season-select:focus {
+    border-color: #ffffff;
+    box-shadow: 0 0 10px rgba(225, 6, 0, 0.5);
+}
+
+.season-select option {
+    background: #15151E;
+    color: #ffffff;
+    padding: 10px;
 }
 
 .navbar {
@@ -49,6 +86,7 @@ main {
     padding: 15px 30px;
     background: none;
     border: none;
+    border-radius: 6px;
     font-size: 25px;
     font-weight: 600;
     color: #ffffff;
