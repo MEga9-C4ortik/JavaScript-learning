@@ -295,18 +295,28 @@ tbody tr:last-child td {
     color: #ffffff;
     font-size: 0.95em;
     margin: 5px 0;
+    border-top:  2px solid #E10600;
 }
 
 .location {
     color: #ffffff;
     font-size: 0.9em;
     margin: 5px 0;
+    border-bottom: 2px solid #E10600;
 }
 
 .date {
     color: #949498;
     font-weight: 600;
     margin: 10px 0;
+}
+
+.sprint-badge {
+    background : #949498;
+    color: #caff6f;
+    border-radius: 14px;
+    border: 2px solid #caff6f;
+    padding: 4px;
 }
 
 .view-results-btn {
@@ -358,7 +368,7 @@ tbody tr:last-child td {
 }
 
 .modal-header {
-    background: #E10600;
+    background: #8e8e91;
     color: white;
     padding: 20px;
     display: flex;
@@ -389,6 +399,8 @@ tbody tr:last-child td {
 }
 
 .modal-body {
+    background: #2b2b2b;
+    color: #E10600;
     padding: 20px;
 }
 
@@ -441,10 +453,6 @@ tbody tr:last-child td {
     color: #15151E;
     text-transform: uppercase;
     font-size: 0.85em;
-}
-
-.results-table tbody tr:hover {
-    background: #f8f9fa;
 }
 
 .loading {
@@ -539,7 +547,7 @@ tbody tr:last-child td {
 /* Mobile: до 768px */
 @media (max-width: 768px) {
     body {
-        padding: 0;
+        padding: 10px;
     }
 
     main {

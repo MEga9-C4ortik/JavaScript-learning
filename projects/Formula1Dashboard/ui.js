@@ -110,9 +110,9 @@ function displayRaceCalendar(races) {
                 </div>
                 <h3 class="race-name">${race.raceName}</h3>
                 <p class="circuit-name">${race.Circuit.circuitName}</p>
-                <p class="location">📍 ${race.Circuit.Location.locality}, ${race.Circuit.Location.country}</p>
-                <p class="date">🗓️ ${formatDate(raceDate)}</p>
-                ${hasSprint ? '<span class="sprint-badge">🏃 Sprint Weekend</span>' : ''}
+                <p class="location"> ${race.Circuit.Location.locality}, ${race.Circuit.Location.country}</p>
+                <p class="date"> ${formatDate(raceDate)}</p>
+                ${hasSprint ? '<span class="sprint-badge"> Sprint Weekend</span>' : ''}
                 ${isPast
             ? `<button class="view-results-btn"
                         onclick="openRaceModal(${race.round}, '${race.raceName.replace(/'/g, "\\'")}')">
