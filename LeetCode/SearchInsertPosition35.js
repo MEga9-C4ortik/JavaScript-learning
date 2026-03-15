@@ -1,7 +1,6 @@
 // 35. Search Insert Position
-
-//runtime 0ms (beats 100%), memory 55.03 mb (beats 8.90%)
 // speed O(logN) | memory O(n)
+//runtime 0ms (beats 100%) | memory 55.03 mb (beats 8.90%)
 
 var searchInsert = function(nums, key) {
     let lo = 0;
