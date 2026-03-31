@@ -1,14 +1,12 @@
 // 35. Search Insert Position
 // speed O(logN) | memory O(n)
-//runtime 0ms (beats 100%) | memory 55.03 mb (beats 8.90%)
 
 var searchInsert = function(nums, key) {
     let lo = 0;
     let hi = nums.length - 1;
-    let mi = -1;
 
     while (lo <= hi) {
-        mi = Math.floor(lo + (hi - lo) / 2);
+        let mi = Math.floor(lo + (hi - lo) / 2);
         if(nums[mi] === key)
             return mi;
         else if (nums[mi] > key)
@@ -16,7 +14,6 @@ var searchInsert = function(nums, key) {
         else if (nums[mi] < key)
             lo = mi + 1;
     }
-
     return lo;
 };
 

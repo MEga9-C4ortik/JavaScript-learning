@@ -1,8 +1,9 @@
 //1. Two Sum
-// Complexity should be < O(n²), did O(n)
-//runtime  4ms(beats 51.82%) | memory 55.31mb(beats 41.65%)
+// Complexity should be < O(n²)
+// Complexity is O(n)
+// Map uses O(1) for searching, getting and adding an element
 
-let twoSum = function(nums, target) {
+let twoSumMap = function(nums, target) {
     let map = new Map();
 
     for (let i = 0; i < nums.length; i++) {
@@ -15,4 +16,25 @@ let twoSum = function(nums, target) {
     }
 };
 
-console.log(twoSum([2,3,6,1,3], 3));
+let twoSum = function(nums, target) {
+    nums.sort((a,b) => a-b);
+
+    let l = 0;
+    let r = nums.length - 1;
+
+    while (l < r) {
+        const currSum = nums[l] + nums[r];
+
+        if (currSum === target) {
+            return [l,r];
+        } else if (currSum > target) {
+            r--;
+        } else {
+            l++;
+        }
+    }
+    return [-1,-1];
+}
+
+console.log("Map: " + twoSumMap([2,3,6,1,3], 3));
+console.log("two index: " + twoSum([2,3,6,1,3], 3));
