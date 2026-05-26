@@ -1,7 +1,7 @@
 // 35. Search Insert Position
 // speed O(logN) | memory O(n)
 
-var searchInsert = function(nums, key) {
+let searchInsert = function(nums, key) {
     let lo = 0;
     let hi = nums.length - 1;
 
