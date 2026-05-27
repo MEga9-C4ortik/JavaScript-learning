@@ -7,7 +7,7 @@ function isPalindrome (num){
         reverse = reverse * 10 + (num % 10);
         num = Math.floor(num / 10);
     }
-    return reverse === original ? true : false;
+    return reverse === original;
 }
 
 number = 10;
